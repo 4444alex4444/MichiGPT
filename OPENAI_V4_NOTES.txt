@@ -1,0 +1,20 @@
+Michi Journey v4 — OpenAI patch applied
+
+Included fixes:
+1. API switched from Anthropic/Claude to OpenAI Responses API.
+2. Environment variable expected by server route:
+   OpenAI_KEY_Michi
+3. Added response depth setting in profile/settings:
+   - short
+   - normal
+   - deep
+4. Chat sends responseDepth to API route.
+5. API route maps responseDepth to max_output_tokens.
+6. Improved answer formatting instructions.
+7. Added separate "Источники" block support.
+8. Chat UI renders clickable markdown/raw links.
+9. Source links render as separate source cards.
+
+After upload to GitHub/Vercel:
+- make sure Vercel environment variable OpenAI_KEY_Michi exists for Production/Preview/Development
+- redeploy project
