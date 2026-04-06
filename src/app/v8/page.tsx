@@ -10,6 +10,7 @@ import factualGuidanceModule from '../../../content/factual_guidance'
 import { getDesignTrackVisual, getHeroVisual, getPathVisual } from '@/lib/visuals'
 
 type TabId = 'today' | 'path' | 'design' | 'factual'
+type ReentryState = 'fresh' | 'fragile' | 'overwhelmed' | 'returning' | 'momentum'
 
 const tabs: Array<{ id: TabId; label: string }> = [
   { id: 'today', label: 'Сегодня' },
@@ -18,13 +19,45 @@ const tabs: Array<{ id: TabId; label: string }> = [
   { id: 'factual', label: 'Проверено' },
 ]
 
+const stateLabels: Record<ReentryState, string> = {
+  fresh: 'Есть ресурс',
+  fragile: 'Хрупкое внимание',
+  overwhelmed: 'Перегруз',
+  returning: 'Возвращаюсь',
+  momentum: 'Есть инерция',
+}
+
+const modeLabels: Record<string, string> = {
+  micro_restart: 'Микро-перезапуск',
+  steady_growth: 'Спокойный рост',
+  focus_day: 'Фокус-день',
+  catchup_light: 'Мягкий catch-up',
+  exam_bridge: 'Мост к экзамену',
+  design_day: 'День дизайна',
+}
+
+const trackLabels: Record<string, string> = {
+  journey_japanese: 'Japanese journey',
+  live_in_japan: 'Жизнь в Японии',
+  study_in_japan: 'Учёба в Японии',
+  design_in_japanese: 'Дизайн на японском',
+  michi_expression: 'Выражение с Michi',
+}
+
 export default function MichiV8Page() {
   const [tab, setTab] = useState<TabId>('today')
+  const [learnerState, setLearnerState] = useState<ReentryState>('returning')
 
-  const todayRecipe = progressionSystem.SESSION_RECIPES[0]
+  const reentryRule = progressionSystem.REENTRY_STATE_RULES.find((rule) => rule.state === learnerState) ?? progressionSystem.REENTRY_STATE_RULES[3]
+  const activeRecipe = progressionSystem.SESSION_RECIPES.find((recipe) => recipe.mode === reentryRule.recommendedMode) ?? progressionSystem.SESSION_RECIPES[0]
+  const weeklyRhythm =
+    learnerState === 'momentum' || learnerState === 'fresh'
+      ? progressionSystem.WEEKLY_RHYTHMS[1]
+      : learnerState === 'overwhelmed' || learnerState === 'returning'
+        ? progressionSystem.WEEKLY_RHYTHMS[2]
+        : progressionSystem.WEEKLY_RHYTHMS[0]
+
   const currentMilestone = progressionSystem.PROGRESS_MILESTONES[1]
-  const weeklyRhythm = progressionSystem.WEEKLY_RHYTHMS[0]
-  const reentryRule = progressionSystem.REENTRY_STATE_RULES[3]
   const reviewSet = finalReleasePack.FINAL_REVIEW_SETS[1]
   const realityDeepCards = finalReleasePack.FINAL_REALITY_DEEP_CARDS.slice(0, 3)
   const pathDecision = practicalPathKits.DECISION_SHEETS[0]
@@ -115,9 +148,29 @@ export default function MichiV8Page() {
         {tab === 'today' && (
           <div style={{ display: 'grid', gap: 14 }}>
             <section style={warmCard}>
-              {sectionTitle('Маленький шаг на сегодня', 'Тихий возврат в ритм', todayRecipe.bestFor)}
+              {sectionTitle('Подобрано под состояние', activeRecipe.title, activeRecipe.bestFor)}
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 12 }}>
+                {(Object.keys(stateLabels) as ReentryState[]).map((state) => (
+                  <button
+                    key={state}
+                    onClick={() => setLearnerState(state)}
+                    style={{
+                      borderRadius: 999,
+                      border: `1px solid ${learnerState === state ? '#cba77b' : '#eadfce'}`,
+                      background: learnerState === state ? 'rgba(154,116,66,0.12)' : '#fffdf9',
+                      color: '#4d3b25',
+                      padding: '8px 12px',
+                      cursor: 'pointer',
+                      fontSize: 12,
+                      fontWeight: 600,
+                    }}
+                  >
+                    {stateLabels[state]}
+                  </button>
+                ))}
+              </div>
               <div style={{ display: 'grid', gap: 10 }}>
-                {todayRecipe.steps.map((step: string, index: number) => (
+                {activeRecipe.steps.map((step: string, index: number) => (
                   <div key={step} style={{ display: 'grid', gridTemplateColumns: '28px 1fr', gap: 10, alignItems: 'start' }}>
                     <div style={{ width: 28, height: 28, borderRadius: 999, background: 'rgba(154,116,66,0.12)', color: accent, display: 'grid', placeItems: 'center', fontWeight: 700 }}>{index + 1}</div>
                     <div style={{ fontSize: 16, lineHeight: 1.5 }}>{step}</div>
@@ -125,17 +178,17 @@ export default function MichiV8Page() {
                 ))}
               </div>
               <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid #eadfce', ...muted }}>
-                <strong style={{ color: '#5f4a2f' }}>Сигнал успеха:</strong> {todayRecipe.successSignal}
+                <strong style={{ color: '#5f4a2f' }}>Сигнал успеха:</strong> {activeRecipe.successSignal}
               </div>
             </section>
 
             <section style={mistCard}>
-              {sectionTitle('Мягкий возврат', 'Что делать, если ритм рассыпался', reentryRule.description)}
+              {sectionTitle('Мягкий возврат', 'Что делать, если ритм сейчас такой', reentryRule.description)}
               <div style={{ padding: '12px 14px', borderRadius: 18, background: '#fffdf9', border: '1px solid #e7ddd2', lineHeight: 1.6 }}>
                 {reentryRule.firstMessage}
               </div>
               <div style={{ marginTop: 10, fontSize: 13, color: '#5f4a2f', fontWeight: 700 }}>Лучший режим сейчас</div>
-              <div style={{ marginTop: 4, ...muted }}>{reentryRule.recommendedMode}</div>
+              <div style={{ marginTop: 4, ...muted }}>{modeLabels[reentryRule.recommendedMode] ?? reentryRule.recommendedMode}</div>
               <div style={{ marginTop: 10, fontSize: 13, color: '#5f4a2f', fontWeight: 700 }}>Чего избегать</div>
               <ul style={{ margin: '6px 0 0', paddingLeft: 18, lineHeight: 1.75 }}>
                 {reentryRule.avoid.map((item: string) => <li key={item}>{item}</li>)}
@@ -171,8 +224,8 @@ export default function MichiV8Page() {
                 {weeklyRhythm.sessions.map((item: any) => (
                   <div key={item.dayLabel} style={{ border: '1px solid #eadfce', borderRadius: 16, padding: 12, background: '#fffdf9' }}>
                     <div style={{ fontSize: 12, color: '#8d8274' }}>{item.dayLabel}</div>
-                    <div style={{ fontSize: 15, fontWeight: 700, marginTop: 2 }}>{item.mode}</div>
-                    <div style={{ marginTop: 4, ...muted }}>Главный трек: {item.primaryTrack}</div>
+                    <div style={{ fontSize: 15, fontWeight: 700, marginTop: 2 }}>{modeLabels[item.mode] ?? item.mode}</div>
+                    <div style={{ marginTop: 4, ...muted }}>Главный трек: {trackLabels[item.primaryTrack] ?? item.primaryTrack}</div>
                   </div>
                 ))}
               </div>
