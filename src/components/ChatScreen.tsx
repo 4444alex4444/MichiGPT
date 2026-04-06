@@ -8,7 +8,7 @@ interface Props {
   isDark: boolean
 }
 
-export default function ChatScreen({ profile, onBack, isDark }: Props) {
+export default function ChatScreen({ onBack, isDark }: Props) {
   const [input, setInput] = useState('')
 
   const palette = {
@@ -31,7 +31,7 @@ export default function ChatScreen({ profile, onBack, isDark }: Props) {
       </div>
 
       <div style={{ background: palette.card, border: `1px solid ${palette.border}`, borderRadius: 18, padding: 16, lineHeight: 1.6 }}>
-        <div style={{ fontSize: 14, marginBottom: 8 }}>Привет, {profile.name || 'друг'}.</div>
+        <div style={{ fontSize: 14, marginBottom: 8 }}>Привет.</div>
         <div style={{ color: palette.muted, marginBottom: 14 }}>
           Этот экран временно упрощён, чтобы стабилизировать сборку v7. Следующим шагом я верну сюда полноценный chat layer поверх новой архитектуры.
         </div>
