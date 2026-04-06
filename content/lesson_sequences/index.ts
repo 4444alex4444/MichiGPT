@@ -193,7 +193,7 @@ export const LESSON_SEQUENCES: LessonSequence[] = [
     phase: 'foundation_n5_n4',
     title: 'Review and restart sandwich',
     mainTrack: 'journey_japanese',
-    supportTracks: ['review'],
+    supportTracks: ['journey_japanese'],
     durationMinutes: 8,
     entry: 'Pick one old familiar item instead of something new.',
     inputStep: 'Do three quick review cards.',
