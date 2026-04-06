@@ -30,6 +30,12 @@ interface Message {
 }
 
 const starter = 'Привет. Я могу быть спокойным проводником по японскому, дизайну и пути к учёбе в Японии.'
+const starterPrompts = [
+  'С чего лучше начать путь к японскому прямо сейчас?',
+  'Что учить после N4, если цель — Япония?',
+  'Как собрать путь в японский вуз без хаоса?',
+  'Как превратить интерес к дизайну в реальный трек?',
+]
 
 export default function ChatScreen({ profile, onBack, isDark }: Props) {
   const [messages, setMessages] = useState<Message[]>([{ role: 'michi', content: starter }])
@@ -91,13 +97,21 @@ export default function ChatScreen({ profile, onBack, isDark }: Props) {
     return 'проверено'
   }
 
+  function sourceKindLabel(kind?: SourceItem['kind']) {
+    if (kind === 'official') return 'официальный источник'
+    if (kind === 'university') return 'сайт вуза'
+    if (kind === 'community') return 'сообщество'
+    if (kind === 'secondary') return 'вторичный источник'
+    return 'источник'
+  }
+
   return (
     <div style={{ minHeight: '100dvh', paddingBottom: 20, background: palette.bg, color: palette.text }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '16px 16px 12px' }}>
         <button onClick={onBack} style={{ background: 'none', border: 'none', fontSize: 24, cursor: 'pointer', color: palette.text }}>←</button>
         <div>
           <div style={{ fontSize: 18, fontWeight: 700 }}>Поговорить с Michi</div>
-          <div style={{ fontSize: 12, color: palette.muted }}>Поддержка + проверяемый factual layer</div>
+          <div style={{ fontSize: 12, color: palette.muted }}>Поддержка, ясность и проверяемые факты</div>
         </div>
       </div>
 
@@ -117,6 +131,19 @@ export default function ChatScreen({ profile, onBack, isDark }: Props) {
               {m.content}
             </div>
 
+            {idx === 0 && messages.length === 1 && (
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 10 }}>
+                {starterPrompts.map((chip, i) => (
+                  <button key={i} onClick={() => sendMessage(chip)} style={{
+                    borderRadius: 999, border: `1px solid ${palette.border}`, background: palette.card,
+                    color: palette.text, padding: '9px 12px', fontSize: 12, cursor: 'pointer'
+                  }}>
+                    {chip}
+                  </button>
+                ))}
+              </div>
+            )}
+
             {m.role === 'michi' && m.meta && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 10 }}>
                 {m.meta.sources && m.meta.sources.length > 0 && (
@@ -131,7 +158,7 @@ export default function ChatScreen({ profile, onBack, isDark }: Props) {
                           borderRadius: 12, padding: 10, background: isDark ? 'rgba(255,255,255,0.02)' : 'rgba(255,255,255,0.75)'
                         }}>
                           <div style={{ fontSize: 14, fontWeight: 600 }}>{s.title}</div>
-                          <div style={{ fontSize: 11, color: palette.muted, marginTop: 2 }}>{s.kind ?? 'source'}</div>
+                          <div style={{ fontSize: 11, color: palette.muted, marginTop: 2 }}>{sourceKindLabel(s.kind)}</div>
                         </a>
                       ))}
                     </div>
