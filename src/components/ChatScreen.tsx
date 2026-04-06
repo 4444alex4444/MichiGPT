@@ -6,6 +6,7 @@ interface Props {
   profile: UserProfile
   onBack: () => void
   isDark: boolean
+  initialPrompt?: string
 }
 
 interface SourceItem {
@@ -37,10 +38,11 @@ const starterPrompts = [
   'Как превратить интерес к дизайну в реальный трек?',
 ]
 
-export default function ChatScreen({ profile, onBack, isDark }: Props) {
+export default function ChatScreen({ profile, onBack, isDark, initialPrompt }: Props) {
   const [messages, setMessages] = useState<Message[]>([{ role: 'michi', content: starter }])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
+  const [didAutostart, setDidAutostart] = useState(false)
   const listRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
@@ -91,6 +93,13 @@ export default function ChatScreen({ profile, onBack, isDark }: Props) {
     }
   }
 
+  useEffect(() => {
+    if (!didAutostart && initialPrompt?.trim()) {
+      setDidAutostart(true)
+      void sendMessage(initialPrompt)
+    }
+  }, [didAutostart, initialPrompt])
+
   function verificationLabel(meta: StructuredReply) {
     if (meta.verification_state === 'could_not_verify') return 'не удалось проверить'
     if (meta.verification_state === 'partially_verified' || meta.verified === false) return 'частично проверено'
@@ -131,7 +140,7 @@ export default function ChatScreen({ profile, onBack, isDark }: Props) {
               {m.content}
             </div>
 
-            {idx === 0 && messages.length === 1 && (
+            {idx === 0 && messages.length === 1 && !initialPrompt && (
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 10 }}>
                 {starterPrompts.map((chip, i) => (
                   <button key={i} onClick={() => sendMessage(chip)} style={{
