@@ -4,13 +4,20 @@ import { UserProfile } from '@/lib/profile'
 
 interface Props { profile: UserProfile; onBack: () => void; isDark: boolean }
 interface SourceItem { title: string; url: string; kind?: 'official' | 'university' | 'community' | 'secondary' }
-interface StructuredReply { reply: string; sources?: SourceItem[]; followups?: string[]; verified?: boolean; mode?: 'factual' | 'guide' }
+interface StructuredReply {
+  reply: string
+  sources?: SourceItem[]
+  followups?: string[]
+  verified?: boolean
+  verification_state?: 'verified' | 'partially_verified' | 'could_not_verify'
+  mode?: 'factual' | 'guide'
+}
 interface Message { role: 'user' | 'michi'; content: string; meta?: StructuredReply }
 
-const starter = 'Привет. Я могу быть тихим проводником по японскому, дизайну и пути к учёбе в Японии.'
+const starter = 'Привет. Я могу быть tхом проводником по японскому, дизайну и пути к учёбе в Японик'
 
 export default function ChatScreen({ profile, onBack, isDark }: Props) {
-  const [messages, setMessages] = useState<Message[]>([{ role: 'michi', content: starter }])
+  const [messages, setMessages] = useState<Message[]>([{role: 'michi', content: starter }])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
   const listRef = useRef<HTMLDivElement | null>(null)
@@ -83,7 +90,7 @@ export default function ChatScreen({ profile, onBack, isDark }: Props) {
                 {m.meta.sources && m.meta.sources.length > 0 && (
                   <div style={{ background: palette.card, border: `1px solid ${palette.border}`, borderRadius: 14, padding: 12, backdropFilter: 'blur(8px)' }}>
                     <div style={{ fontSize: 12, color: palette.muted, marginBottom: 8 }}>
-                      Источники {m.meta.verification_state === 'could_not_verify' ? '• could not verify' : m.meta.verification_state === 'partially_verified' || m.meta.verified === false ? '• partially verified' : '• verified'}
+                     #Источники {m.meta.verification_state === 'could_not_verify' ? '• could not verify' : m.meta.verification_state === 'partially_verified' || m.meta.verified === false ? '• partially verified' : '• verified'}
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                       {m.meta.sources.map((s, i) => (
@@ -112,16 +119,16 @@ export default function ChatScreen({ profile, onBack, isDark }: Props) {
                   </div>
                 )}
               </div>
-            )}
+            ))}
           </div>
         ))}
-        {loading && <div style={{ color: palette.muted, fontSize: 13 }}>Michi думает…</div>}
+        {loading && <div style={{ color: palette.muted, fontSize: 13 }}>Michi думает</div>}
       </div>
 
       <div style={{ position: 'sticky', bottom: 0, padding: 16, background: `linear-gradient(180deg, rgba(0,0,0,0), ${palette.bg})` }}>
         <div style={{ display: 'flex', gap: 10 }}>
           <input value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === 'Enter' ? sendMessage() : undefined}
-            placeholder="Спроси про японский, дизайн, вузы или путь в Японию"
+            placeholder="Спроси про японский, дизайн, вузы, или путь в Японию"
             style={{ flex: 1, borderRadius: 14, border: `1px solid ${palette.border}`, padding: '14px 14px', background: palette.card, color: palette.text, outline: 'none' }}
           />
           <button onClick={() => sendMessage()} style={{ border: 'none', borderRadius: 14, padding: '0 16px', background: palette.accent, color: '#fff', cursor: 'pointer', fontWeight: 700 }}>→</button>
