@@ -1,1 +1,1 @@
-export { default } from './v7/page'
+export { default } from './v8/page'
