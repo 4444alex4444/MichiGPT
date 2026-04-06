@@ -1,7 +1,7 @@
 export type VisualLayer = 'real' | 'dream' | 'process'
 export type VisualSeason = 'mixed' | 'spring' | 'summer' | 'autumn' | 'winter'
 export type VisualMood = 'quiet' | 'dream' | 'urban' | 'sacred' | 'water' | 'mountain' | 'study' | 'night'
-export type VisualUsage = 'hero' | 'scene-cover' | 'path-banner' | 'chapter-open' | 'unlock' | 'chat-bg' | 'info-card'
+export type VisualUsage = 'hero' | 'scene-cover' | 'path-banner' | 'chapter-open' | 'unlock' | 'chat-bg' | 'info-card' | 'onboarding'
 
 export interface AtmosphereAsset {
   id: string
@@ -26,10 +26,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "water",
     "theme": "bridge",
     "intensity": "calm",
-    "usage": [
-      "scene-cover",
-      "chat-bg"
-    ],
+    "usage": ["scene-cover", "chat-bg"],
     "text_safe": true
   },
   {
@@ -41,10 +38,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "quiet",
     "theme": "train",
     "intensity": "calm",
-    "usage": [
-      "scene-cover",
-      "chat-bg"
-    ],
+    "usage": ["scene-cover", "chat-bg"],
     "text_safe": true
   },
   {
@@ -56,10 +50,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "sacred",
     "theme": "temple",
     "intensity": "cinematic",
-    "usage": [
-      "scene-cover",
-      "chapter-open"
-    ],
+    "usage": ["scene-cover", "chapter-open"],
     "text_safe": false
   },
   {
@@ -71,10 +62,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "urban",
     "theme": "city",
     "intensity": "cinematic",
-    "usage": [
-      "hero",
-      "chat-bg"
-    ],
+    "usage": ["hero", "chat-bg"],
     "text_safe": true
   },
   {
@@ -86,10 +74,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "water",
     "theme": "river",
     "intensity": "calm",
-    "usage": [
-      "scene-cover",
-      "path-banner"
-    ],
+    "usage": ["scene-cover", "path-banner"],
     "text_safe": true
   },
   {
@@ -101,10 +86,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "sacred",
     "theme": "stone-steps",
     "intensity": "inspiring",
-    "usage": [
-      "scene-cover",
-      "unlock"
-    ],
+    "usage": ["scene-cover", "unlock"],
     "text_safe": false
   },
   {
@@ -116,10 +98,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "quiet",
     "theme": "sakura",
     "intensity": "inspiring",
-    "usage": [
-      "hero",
-      "scene-cover"
-    ],
+    "usage": ["hero", "scene-cover", "onboarding"],
     "text_safe": true
   },
   {
@@ -131,10 +110,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "night",
     "theme": "lantern",
     "intensity": "cinematic",
-    "usage": [
-      "hero",
-      "chat-bg"
-    ],
+    "usage": ["hero", "chat-bg"],
     "text_safe": true
   },
   {
@@ -146,10 +122,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "sacred",
     "theme": "bamboo",
     "intensity": "calm",
-    "usage": [
-      "scene-cover",
-      "chapter-open"
-    ],
+    "usage": ["scene-cover", "chapter-open"],
     "text_safe": false
   },
   {
@@ -161,10 +134,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "water",
     "theme": "bridge",
     "intensity": "calm",
-    "usage": [
-      "scene-cover",
-      "path-banner"
-    ],
+    "usage": ["scene-cover", "path-banner"],
     "text_safe": true
   },
   {
@@ -173,13 +143,10 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "source_type": "real_photo",
     "layer": "real",
     "season": "winter",
-    "mood": "quiet",
+    "mood": "mountain",
     "theme": "mountain",
     "intensity": "inspiring",
-    "usage": [
-      "chapter-open",
-      "unlock"
-    ],
+    "usage": ["chapter-open", "unlock", "onboarding"],
     "text_safe": true
   },
   {
@@ -191,10 +158,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "urban",
     "theme": "station",
     "intensity": "calm",
-    "usage": [
-      "scene-cover",
-      "chat-bg"
-    ],
+    "usage": ["scene-cover", "chat-bg"],
     "text_safe": true
   },
   {
@@ -206,12 +170,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "dream",
     "theme": "fuji",
     "intensity": "inspiring",
-    "usage": [
-      "hero",
-      "chapter-open",
-      "unlock",
-      "onboarding"
-    ],
+    "usage": ["hero", "chapter-open", "unlock", "onboarding"],
     "text_safe": true
   },
   {
@@ -219,16 +178,11 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "src": "/visuals/dream/dream-02.jpg",
     "source_type": "generated_reference",
     "layer": "dream",
-    "season": "mixed",
+    "season": "spring",
     "mood": "dream",
     "theme": "sakura",
     "intensity": "inspiring",
-    "usage": [
-      "hero",
-      "chapter-open",
-      "unlock",
-      "onboarding"
-    ],
+    "usage": ["hero", "chapter-open", "unlock", "onboarding"],
     "text_safe": true
   },
   {
@@ -240,12 +194,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "dream",
     "theme": "notebook",
     "intensity": "inspiring",
-    "usage": [
-      "hero",
-      "chapter-open",
-      "unlock",
-      "onboarding"
-    ],
+    "usage": ["hero", "chapter-open", "unlock", "onboarding"],
     "text_safe": true
   },
   {
@@ -257,12 +206,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "dream",
     "theme": "map",
     "intensity": "inspiring",
-    "usage": [
-      "hero",
-      "chapter-open",
-      "unlock",
-      "onboarding"
-    ],
+    "usage": ["hero", "chapter-open", "unlock", "onboarding"],
     "text_safe": true
   },
   {
@@ -274,12 +218,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "dream",
     "theme": "paper-cut",
     "intensity": "inspiring",
-    "usage": [
-      "hero",
-      "chapter-open",
-      "unlock",
-      "onboarding"
-    ],
+    "usage": ["hero", "chapter-open", "unlock", "onboarding"],
     "text_safe": true
   },
   {
@@ -291,12 +230,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "dream",
     "theme": "journey",
     "intensity": "inspiring",
-    "usage": [
-      "hero",
-      "chapter-open",
-      "unlock",
-      "onboarding"
-    ],
+    "usage": ["hero", "chapter-open", "unlock", "onboarding"],
     "text_safe": true
   },
   {
@@ -308,12 +242,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "dream",
     "theme": "design",
     "intensity": "inspiring",
-    "usage": [
-      "hero",
-      "chapter-open",
-      "unlock",
-      "onboarding"
-    ],
+    "usage": ["hero", "chapter-open", "unlock", "onboarding"],
     "text_safe": true
   },
   {
@@ -325,12 +254,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "dream",
     "theme": "chapter",
     "intensity": "inspiring",
-    "usage": [
-      "hero",
-      "chapter-open",
-      "unlock",
-      "onboarding"
-    ],
+    "usage": ["hero", "chapter-open", "unlock", "onboarding"],
     "text_safe": true
   },
   {
@@ -342,12 +266,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "dream",
     "theme": "hope",
     "intensity": "inspiring",
-    "usage": [
-      "hero",
-      "chapter-open",
-      "unlock",
-      "onboarding"
-    ],
+    "usage": ["hero", "chapter-open", "unlock", "onboarding"],
     "text_safe": true
   },
   {
@@ -359,12 +278,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "dream",
     "theme": "onboarding",
     "intensity": "inspiring",
-    "usage": [
-      "hero",
-      "chapter-open",
-      "unlock",
-      "onboarding"
-    ],
+    "usage": ["hero", "chapter-open", "unlock", "onboarding"],
     "text_safe": true
   },
   {
@@ -376,11 +290,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "study",
     "theme": "visa",
     "intensity": "calm",
-    "usage": [
-      "path-banner",
-      "chapter-open",
-      "info-card"
-    ],
+    "usage": ["path-banner", "chapter-open", "info-card"],
     "text_safe": true
   },
   {
@@ -392,11 +302,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "study",
     "theme": "notebook",
     "intensity": "calm",
-    "usage": [
-      "path-banner",
-      "chapter-open",
-      "info-card"
-    ],
+    "usage": ["path-banner", "chapter-open", "info-card"],
     "text_safe": true
   },
   {
@@ -408,11 +314,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "study",
     "theme": "map",
     "intensity": "calm",
-    "usage": [
-      "path-banner",
-      "chapter-open",
-      "info-card"
-    ],
+    "usage": ["path-banner", "chapter-open", "info-card"],
     "text_safe": true
   },
   {
@@ -424,11 +326,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "study",
     "theme": "study-table",
     "intensity": "calm",
-    "usage": [
-      "path-banner",
-      "chapter-open",
-      "info-card"
-    ],
+    "usage": ["path-banner", "chapter-open", "info-card"],
     "text_safe": true
   },
   {
@@ -440,11 +338,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "study",
     "theme": "documents",
     "intensity": "calm",
-    "usage": [
-      "path-banner",
-      "chapter-open",
-      "info-card"
-    ],
+    "usage": ["path-banner", "chapter-open", "info-card"],
     "text_safe": true
   },
   {
@@ -456,11 +350,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "study",
     "theme": "planning",
     "intensity": "calm",
-    "usage": [
-      "path-banner",
-      "chapter-open",
-      "info-card"
-    ],
+    "usage": ["path-banner", "chapter-open", "info-card"],
     "text_safe": true
   },
   {
@@ -472,11 +362,7 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "study",
     "theme": "path",
     "intensity": "calm",
-    "usage": [
-      "path-banner",
-      "chapter-open",
-      "info-card"
-    ],
+    "usage": ["path-banner", "chapter-open", "info-card"],
     "text_safe": true
   },
   {
@@ -488,34 +374,61 @@ export const ATMOSPHERE_ASSETS: AtmosphereAsset[] = [
     "mood": "study",
     "theme": "application",
     "intensity": "calm",
-    "usage": [
-      "path-banner",
-      "chapter-open",
-      "info-card"
-    ],
+    "usage": ["path-banner", "chapter-open", "info-card"],
     "text_safe": true
   }
 ] as AtmosphereAsset[]
+
+function firstTextSafe(items: AtmosphereAsset[]) {
+  return items.find((item) => item.text_safe) ?? items[0] ?? ATMOSPHERE_ASSETS[0]
+}
 
 export function getAssetsByUsage(usage: VisualUsage) {
   return ATMOSPHERE_ASSETS.filter((item) => item.usage.includes(usage))
 }
 
-export function getHeroVisual() {
-  return getAssetsByUsage('hero')[0] ?? ATMOSPHERE_ASSETS[0]
+export function getAssetsByLayer(layer: VisualLayer) {
+  return ATMOSPHERE_ASSETS.filter((item) => item.layer === layer)
 }
 
-export function getPathBannerVisual() {
-  return getAssetsByUsage('path-banner')[0] ?? ATMOSPHERE_ASSETS[0]
+export function getAssetsBySeason(season: VisualSeason) {
+  return ATMOSPHERE_ASSETS.filter((item) => item.season === season || item.season === 'mixed')
 }
 
-export function getChatBackdropVisual() {
-  return getAssetsByUsage('chat-bg')[0] ?? ATMOSPHERE_ASSETS[0]
+export function getHeroVisual(season?: VisualSeason) {
+  const pool = getAssetsByUsage('hero').filter((item) => !season || item.season === season || item.season === 'mixed')
+  return firstTextSafe(pool)
 }
 
-export function getSceneCoverByTheme(theme?: string) {
-  const exact = ATMOSPHERE_ASSETS.find((item) => item.usage.includes('scene-cover') && item.theme === theme)
-  return exact ?? getAssetsByUsage('scene-cover')[0] ?? ATMOSPHERE_ASSETS[0]
+export function getOnboardingVisual(season?: VisualSeason) {
+  const pool = getAssetsByUsage('onboarding').filter((item) => !season || item.season === season || item.season === 'mixed')
+  return firstTextSafe(pool)
+}
+
+export function getPathBannerVisual(season?: VisualSeason) {
+  const pool = getAssetsByUsage('path-banner').filter((item) => !season || item.season === season || item.season === 'mixed')
+  return firstTextSafe(pool)
+}
+
+export function getChatBackdropVisual(season?: VisualSeason) {
+  const pool = getAssetsByUsage('chat-bg').filter((item) => !season || item.season === season || item.season === 'mixed')
+  return firstTextSafe(pool)
+}
+
+export function getSceneCoverByTheme(theme?: string, season?: VisualSeason) {
+  const filtered = ATMOSPHERE_ASSETS.filter((item) => item.usage.includes('scene-cover') && (!season || item.season === season || item.season === 'mixed'))
+  const exact = filtered.find((item) => item.theme === theme)
+  return exact ?? firstTextSafe(filtered)
+}
+
+export function getChapterOpenVisual(layer?: VisualLayer) {
+  const pool = getAssetsByUsage('chapter-open').filter((item) => !layer || item.layer === layer)
+  return firstTextSafe(pool)
+}
+
+export function getUnlockVisual(layer?: VisualLayer) {
+  const pool = getAssetsByUsage('unlock').filter((item) => !layer || item.layer === layer)
+  return firstTextSafe(pool)
 }
 
 export function getDesignTrackVisual() {
