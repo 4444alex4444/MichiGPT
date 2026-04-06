@@ -30,6 +30,8 @@ export default function MichiV8Page() {
   const bridgePack = lessonSequencesModule.SEQUENCE_PACKS[1]
   const designLexicon = finalReleasePack.FINAL_DESIGN_LEXICON_SETS[1]
   const critiqueCard = designAcademicPack.DESIGN_CRITIQUE_CARDS[4]
+  const portfolioFrame = designAcademicPack.PORTFOLIO_TALK_FRAMES[2]
+  const survivalPatterns = designAcademicPack.STUDY_SURVIVAL_PATTERNS.slice(0, 3)
   const factualCard = factualGuidanceModule.FACTUAL_GUIDANCE_CARDS[0]
   const sourceRules = factualGuidanceModule.SOURCE_POLICY_RULES.slice(0, 3)
   const nextMonths = useMemo(() => MICHI_TWO_YEAR_CURRICULUM.slice(0, 4), [])
@@ -218,6 +220,19 @@ export default function MichiV8Page() {
             <section style={warmCard}>
               {sectionTitle('Язык critique', critiqueCard.title, 'Когда нравится визуал, но нужно ещё суметь объяснить, что именно работает и почему.')}
               <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.8 }}>{critiqueCard.sentenceFrames.map((f: string) => <li key={f}>{f}</li>)}</ul>
+              <div style={{ marginTop: 10, ...muted }}><strong style={{ color: '#5f4a2f' }}>Микро-задача:</strong> {critiqueCard.microTask}</div>
+            </section>
+            <section style={mistCard}>
+              {sectionTitle('Разговор о портфолио', portfolioFrame.title, 'Это уже не просто словарь, а структура ответа, которая пригодится для студийного разговора, презентации и приёмной логики.')}
+              <div style={{ display: 'grid', gap: 10 }}>
+                {portfolioFrame.structure.map((item: string) => (
+                  <div key={item} style={{ border: '1px solid #e7ddd2', borderRadius: 16, padding: 12, background: '#fffdf9' }}>{item}</div>
+                ))}
+              </div>
+              <div style={{ marginTop: 12, fontSize: 13, color: '#5f4a2f', fontWeight: 700 }}>Полезный японский</div>
+              <ul style={{ margin: '6px 0 0', paddingLeft: 18, lineHeight: 1.75 }}>
+                {portfolioFrame.usefulJapanese.map((line: string) => <li key={line}>{line}</li>)}
+              </ul>
             </section>
             <section style={card}>
               {sectionTitle('Лексика дизайна', designLexicon.title, 'Не просто слова, а строительный материал для обсуждения работ, интерфейсов и визуальных решений.')}
@@ -230,6 +245,20 @@ export default function MichiV8Page() {
                     </div>
                     <div style={{ marginTop: 4, fontSize: 14, color: '#6f6253' }}>{item.en}</div>
                     <div style={{ marginTop: 8, lineHeight: 1.55 }}>{item.use}</div>
+                  </div>
+                ))}
+              </div>
+            </section>
+            <section style={warmCard}>
+              {sectionTitle('Учебная выживаемость', 'Фразы, которые реально помогают не теряться', 'Это уже ближе к жизни в аудитории, офисе и групповой работе, где важен не только язык, но и способность спокойно продолжать действие.')}
+              <div style={{ display: 'grid', gap: 12 }}>
+                {survivalPatterns.map((item: any) => (
+                  <div key={item.id} style={{ border: '1px solid #eadfce', borderRadius: 18, padding: 14, background: '#fffdf9' }}>
+                    <div style={{ fontSize: 15, fontWeight: 700 }}>{item.title}</div>
+                    <div style={{ marginTop: 6, ...muted }}>{item.useCase}</div>
+                    <ul style={{ margin: '8px 0 0', paddingLeft: 18, lineHeight: 1.75 }}>
+                      {item.japanese.map((line: string) => <li key={line}>{line}</li>)}
+                    </ul>
                   </div>
                 ))}
               </div>
