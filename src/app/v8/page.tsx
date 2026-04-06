@@ -53,10 +53,10 @@ export default function MichiV8Page() {
     <div style={{ minHeight: '100dvh', background: 'linear-gradient(180deg, #f8f2e8 0%, #efe6d7 100%)', color: '#2c2925' }}>
       <div style={{ maxWidth: 760, margin: '0 auto', padding: '22px 16px 56px' }}>
         <header style={{ marginBottom: 16 }}>
-          <div style={{ fontSize: 12, letterSpacing: '0.08em', color: '#8c8175' }}>MICHI JOURNEY · 道 · v8</div>
+          <div style={{ fontSize: 12, letterSpacing: '0.08em', color: '#8c8175' }}>MICHI JOURNEY · 道</div>
           <h1 style={{ margin: '10px 0 10px', fontSize: 30, lineHeight: 1.12 }}>Тихий путь к японскому и настоящей Японии</h1>
           <p style={{ ...muted, margin: 0, maxWidth: 620 }}>
-            Более тёплая и мобильная поверхность: меньше ощущения dashboard, больше ощущения живого путешествия с практической опорой.
+            Более тёплая и мобильная поверхность: меньше ощущения учебной панели, больше ощущения живого путешествия с практической опорой.
           </p>
         </header>
 
@@ -139,7 +139,7 @@ export default function MichiV8Page() {
             <section style={{ ...card, overflow: 'hidden', position: 'relative' }}>
               <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(180deg, rgba(32,21,8,0.24), rgba(32,21,8,0.62)), url(${pathVisual?.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
               <div style={{ position: 'relative', zIndex: 1, color: '#fff' }}>
-                <div style={{ fontSize: 12, opacity: 0.82, marginBottom: 8 }}>Path to Japan</div>
+                <div style={{ fontSize: 12, opacity: 0.82, marginBottom: 8 }}>Путь в Японию</div>
                 <h3 style={{ margin: '0 0 8px', fontSize: 28, lineHeight: 1.14 }}>Не мечта вообще, а следующий реальный шаг</h3>
                 <p style={{ margin: 0, color: 'rgba(255,255,255,0.84)', lineHeight: 1.6 }}>Здесь путь к Японии разбирается как проверяемая траектория: что выяснить, что сравнить и где не перепутать красивое желание с реальной процедурой.</p>
               </div>
@@ -169,7 +169,7 @@ export default function MichiV8Page() {
             <section style={{ ...card, overflow: 'hidden', position: 'relative' }}>
               <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(180deg, rgba(255,250,244,0.70), rgba(255,250,244,0.92)), url(${designVisual?.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
               <div style={{ position: 'relative', zIndex: 1 }}>
-                <div style={{ fontSize: 12, color: accent, marginBottom: 8 }}>Design track</div>
+                <div style={{ fontSize: 12, color: accent, marginBottom: 8 }}>Дизайн-трек</div>
                 <h3 style={{ margin: '0 0 8px', fontSize: 28, lineHeight: 1.16 }}>Дизайн как настоящая японская траектория</h3>
                 <p style={{ ...muted, margin: 0 }}>Не просто красивые картинки, а язык для critique и реального студийного будущего.</p>
               </div>
