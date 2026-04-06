@@ -24,6 +24,7 @@ export default function MichiV8Page() {
   const todayRecipe = progressionSystem.SESSION_RECIPES[0]
   const currentMilestone = progressionSystem.PROGRESS_MILESTONES[1]
   const reviewSet = finalReleasePack.FINAL_REVIEW_SETS[1]
+  const realityDeepCards = finalReleasePack.FINAL_REALITY_DEEP_CARDS.slice(0, 3)
   const pathDecision = practicalPathKits.DECISION_SHEETS[0]
   const pathScenario = practicalPathKits.PATH_SCENARIOS[0]
   const bridgePack = lessonSequencesModule.SEQUENCE_PACKS[1]
@@ -186,6 +187,21 @@ export default function MichiV8Page() {
               {sectionTitle('Переход к учебному японскому', bridgePack.title, bridgePack.objective)}
               <div style={{ ...muted, marginTop: 4 }}><strong style={{ color: '#5f4a2f' }}>Сдвиг:</strong> {bridgePack.expectedShift}</div>
             </section>
+            <section style={warmCard}>
+              {sectionTitle('Практические истины', 'Что чаще всего ломает путь', 'Это не мотивирующие лозунги, а вещи, которые чаще всего путают planning и превращают его в хаос.')}
+              <div style={{ display: 'grid', gap: 12 }}>
+                {realityDeepCards.map((item: any) => (
+                  <div key={item.id} style={{ border: '1px solid #eadfce', borderRadius: 18, padding: 14, background: '#fffdf9' }}>
+                    <div style={{ fontSize: 16, fontWeight: 700, lineHeight: 1.35 }}>{item.title}</div>
+                    <div style={{ marginTop: 6, ...muted }}>{item.practicalTruth}</div>
+                    <div style={{ marginTop: 10, fontSize: 13, color: '#5f4a2f', fontWeight: 700 }}>Что сделать дальше</div>
+                    <ul style={{ margin: '6px 0 0', paddingLeft: 18, lineHeight: 1.75 }}>
+                      {item.whatToDoNext.map((step: string) => <li key={step}>{step}</li>)}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </section>
           </div>
         )}
 
@@ -230,6 +246,19 @@ export default function MichiV8Page() {
             <section style={mistCard}>
               {sectionTitle('Правила доверия', 'Как Michi должен обращаться с фактами', 'Когда речь о грантах, дедлайнах, визах и программах, поддержка не должна подменять проверку.')}
               <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.8 }}>{sourceRules.map((r: any) => <li key={r.id}>{r.rule}</li>)}</ul>
+            </section>
+            <section style={card}>
+              {sectionTitle('Чего не делать', 'Три типичных ошибки planning-а', 'Это не запреты ради строгости, а защита от самых частых логических ловушек.')}
+              <div style={{ display: 'grid', gap: 10 }}>
+                {realityDeepCards.map((item: any) => (
+                  <div key={item.id} style={{ border: '1px solid #ece3d7', borderRadius: 16, padding: 14, background: '#fffdf9' }}>
+                    <div style={{ fontSize: 15, fontWeight: 700 }}>{item.title}</div>
+                    <ul style={{ margin: '8px 0 0', paddingLeft: 18, lineHeight: 1.75 }}>
+                      {item.whatNotToDo.map((rule: string) => <li key={rule}>{rule}</li>)}
+                    </ul>
+                  </div>
+                ))}
+              </div>
             </section>
           </div>
         )}
