@@ -37,11 +37,83 @@ const modeLabels: Record<string, string> = {
 }
 
 const trackLabels: Record<string, string> = {
-  journey_japanese: 'Japanese journey',
+  journey_japanese: 'Японский путь',
   live_in_japan: 'Жизнь в Японии',
   study_in_japan: 'Учёба в Японии',
   design_in_japanese: 'Дизайн на японском',
   michi_expression: 'Выражение с Michi',
+}
+
+const recipeSurface: Record<string, { title: string; bestFor: string; successSignal: string; steps?: string[] }> = {
+  session_001: {
+    title: 'Маленький перезапуск после трения',
+    bestFor: 'Для дня, когда начать тяжелее, чем реально позаниматься.',
+    successSignal: 'Сессия закончилась, и появляется чувство: «я снова в движении».',
+    steps: ['Открой одну знакомую сцену', 'Сделай 2 элемента повторения', 'Скажи или запиши один маленький ответ'],
+  },
+  session_002: {
+    title: 'Спокойная ежедневная сессия',
+    bestFor: 'Для обычного дня, когда внимания хватает на компактный, но цельный цикл.',
+    successSignal: 'Ты коснулся входа, переноса и закрепления в одном коротком круге.',
+    steps: ['Одна сцена или короткий фрагмент', 'Одна задача на перенос', 'Один цикл повторения', 'Одна заметка про следующий шаг'],
+  },
+  session_003: {
+    title: 'Фокус на учебной готовности',
+    bestFor: 'Для дня, когда хочется сильнее продвинуться в школьно-академическом японском.',
+    successSignal: 'Учебный язык начинает ощущаться рабочим, а не только выученным.',
+    steps: ['Разобрать одну инструкцию или короткий учебный текст', 'Сделать краткую заметку или summary', 'Закончить набором практических survival-фраз'],
+  },
+  session_004: {
+    title: 'Мягкий catch-up без спирали вины',
+    bestFor: 'После нескольких пропущенных дней, когда легко сорваться в попытку догнать всё сразу.',
+    successSignal: 'Непрерывность вернулась, но без перегруза и самонаказания.',
+    steps: ['Выбери только один трек', 'Сделай одно лёгкое re-entry действие', 'Повтори один знакомый набор', 'Остановись на ощущении успеха'],
+  },
+  session_005: {
+    title: 'Мост к N3/N2 через смысл',
+    bestFor: 'Когда нужен более серьёзный exam-facing ритм, но без потери живого смысла продукта.',
+    successSignal: 'Появляется ощущение, что ты тренируешь давление через осмысленные задачи, а не через сухую дрель.',
+    steps: ['Прочитать или прослушать ради общего смысла', 'Вытащить ключевые точки', 'Сделать одну compare/decision задачу', 'Закончить summary или коротким ответом'],
+  },
+  session_006: {
+    title: 'День дизайна на японском',
+    bestFor: 'Когда хочется соединить японский с дизайнерской идентичностью и будущей учёбой.',
+    successSignal: 'Дизайн начинает ощущаться как японоговорящий путь, а не только как мечта-картинка.',
+    steps: ['Посмотреть один визуальный пример', 'Использовать одну critique-card', 'Объяснить одно дизайнерское решение или эффект', 'Сохранить одну фразу для будущего portfolio talk'],
+  },
+}
+
+const milestoneSurface: Record<string, { title: string; learnerCan: string[] }> = {
+  milestone_001: {
+    title: 'Повседневная опора',
+    learnerCan: ['понимать базовый повседневный японский', 'выживать в маленьких реальных взаимодействиях', 'описывать простые предпочтения и наблюдения'],
+  },
+  milestone_002: {
+    title: 'Связный функциональный японский',
+    learnerCan: ['следить за более длинными объяснениями', 'сравнивать варианты', 'задавать уточняющие вопросы', 'разбирать короткие учебные задачи'],
+  },
+  milestone_003: {
+    title: 'Готовность к учёбе и дизайну',
+    learnerCan: ['меньше паниковать перед учебными инструкциями', 'держать lecture-like структуру', 'использовать critique и portfolio language', 'просить помощь и уточнение в институциональной среде'],
+  },
+}
+
+const rhythmSurface: Record<string, { title: string; whyItWorks: string; days: Record<string, string> }> = {
+  weekly_001: {
+    title: 'Спокойный ритм пяти касаний',
+    whyItWorks: 'Ты касаешься разных слоёв продукта без требования к идеальной семидневной серии.',
+    days: { 'Day 1': 'День 1', 'Day 2': 'День 2', 'Day 3': 'День 3', 'Day 4': 'День 4', 'Day 5': 'День 5' },
+  },
+  weekly_002: {
+    title: 'Ритм с опорой на учёбу',
+    whyItWorks: 'Академическая сложность растёт постепенно и не ломает мотивацию и дизайн-идентичность.',
+    days: { 'Day 1': 'День 1', 'Day 2': 'День 2', 'Day 3': 'День 3', 'Day 4': 'День 4', 'Day 5': 'День 5' },
+  },
+  weekly_003: {
+    title: 'Ритм восстановления после сбоев',
+    whyItWorks: 'Сначала возвращается непрерывность, а уже потом интенсивность.',
+    days: { 'Day 1': 'День 1', 'Day 2': 'День 2', 'Day 3': 'День 3', 'Day 4': 'День 4', 'Day 5': 'День 5' },
+  },
 }
 
 export default function MichiV8Page() {
@@ -49,7 +121,7 @@ export default function MichiV8Page() {
   const [learnerState, setLearnerState] = useState<ReentryState>('returning')
 
   const reentryRule = progressionSystem.REENTRY_STATE_RULES.find((rule) => rule.state === learnerState) ?? progressionSystem.REENTRY_STATE_RULES[3]
-  const activeRecipe = progressionSystem.SESSION_RECIPES.find((recipe) => recipe.mode === reentryRule.recommendedMode) ?? progressionSystem.SESSION_RECIPES[0]
+  const rawActiveRecipe = progressionSystem.SESSION_RECIPES.find((recipe) => recipe.mode === reentryRule.recommendedMode) ?? progressionSystem.SESSION_RECIPES[0]
   const weeklyRhythm =
     learnerState === 'momentum' || learnerState === 'fresh'
       ? progressionSystem.WEEKLY_RHYTHMS[1]
@@ -70,6 +142,10 @@ export default function MichiV8Page() {
   const factualCard = factualGuidanceModule.FACTUAL_GUIDANCE_CARDS[0]
   const sourceRules = factualGuidanceModule.SOURCE_POLICY_RULES.slice(0, 3)
   const nextMonths = useMemo(() => MICHI_TWO_YEAR_CURRICULUM.slice(0, 4), [])
+
+  const activeRecipeSurface = recipeSurface[rawActiveRecipe.id]
+  const milestoneSurfaceView = milestoneSurface[currentMilestone.id]
+  const rhythmSurfaceView = rhythmSurface[weeklyRhythm.id]
 
   const heroVisual = getHeroVisual()
   const designVisual = getDesignTrackVisual()
@@ -148,7 +224,7 @@ export default function MichiV8Page() {
         {tab === 'today' && (
           <div style={{ display: 'grid', gap: 14 }}>
             <section style={warmCard}>
-              {sectionTitle('Подобрано под состояние', activeRecipe.title, activeRecipe.bestFor)}
+              {sectionTitle('Подобрано под состояние', activeRecipeSurface?.title ?? rawActiveRecipe.title, activeRecipeSurface?.bestFor ?? rawActiveRecipe.bestFor)}
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 12 }}>
                 {(Object.keys(stateLabels) as ReentryState[]).map((state) => (
                   <button
@@ -170,7 +246,7 @@ export default function MichiV8Page() {
                 ))}
               </div>
               <div style={{ display: 'grid', gap: 10 }}>
-                {activeRecipe.steps.map((step: string, index: number) => (
+                {(activeRecipeSurface?.steps ?? rawActiveRecipe.steps).map((step: string, index: number) => (
                   <div key={step} style={{ display: 'grid', gridTemplateColumns: '28px 1fr', gap: 10, alignItems: 'start' }}>
                     <div style={{ width: 28, height: 28, borderRadius: 999, background: 'rgba(154,116,66,0.12)', color: accent, display: 'grid', placeItems: 'center', fontWeight: 700 }}>{index + 1}</div>
                     <div style={{ fontSize: 16, lineHeight: 1.5 }}>{step}</div>
@@ -178,7 +254,7 @@ export default function MichiV8Page() {
                 ))}
               </div>
               <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid #eadfce', ...muted }}>
-                <strong style={{ color: '#5f4a2f' }}>Сигнал успеха:</strong> {activeRecipe.successSignal}
+                <strong style={{ color: '#5f4a2f' }}>Сигнал успеха:</strong> {activeRecipeSurface?.successSignal ?? rawActiveRecipe.successSignal}
               </div>
             </section>
 
@@ -198,9 +274,9 @@ export default function MichiV8Page() {
             <section style={{ ...mistCard, overflow: 'hidden', position: 'relative' }}>
               <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(180deg, rgba(247,241,232,0.76), rgba(247,241,232,0.94)), url(${pathVisual?.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
               <div style={{ position: 'relative', zIndex: 1 }}>
-                {sectionTitle('Точка прогресса', currentMilestone.title)}
+                {sectionTitle('Точка прогресса', milestoneSurfaceView?.title ?? currentMilestone.title)}
                 <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.85 }}>
-                  {currentMilestone.learnerCan.map((item: string) => <li key={item}>{item}</li>)}
+                  {(milestoneSurfaceView?.learnerCan ?? currentMilestone.learnerCan).map((item: string) => <li key={item}>{item}</li>)}
                 </ul>
               </div>
             </section>
@@ -219,11 +295,11 @@ export default function MichiV8Page() {
             </section>
 
             <section style={warmCard}>
-              {sectionTitle('Ритм недели', weeklyRhythm.title, weeklyRhythm.whyItWorks)}
+              {sectionTitle('Ритм недели', rhythmSurfaceView?.title ?? weeklyRhythm.title, rhythmSurfaceView?.whyItWorks ?? weeklyRhythm.whyItWorks)}
               <div style={{ display: 'grid', gap: 10 }}>
                 {weeklyRhythm.sessions.map((item: any) => (
                   <div key={item.dayLabel} style={{ border: '1px solid #eadfce', borderRadius: 16, padding: 12, background: '#fffdf9' }}>
-                    <div style={{ fontSize: 12, color: '#8d8274' }}>{item.dayLabel}</div>
+                    <div style={{ fontSize: 12, color: '#8d8274' }}>{rhythmSurfaceView?.days?.[item.dayLabel] ?? item.dayLabel}</div>
                     <div style={{ fontSize: 15, fontWeight: 700, marginTop: 2 }}>{modeLabels[item.mode] ?? item.mode}</div>
                     <div style={{ marginTop: 4, ...muted }}>Главный трек: {trackLabels[item.primaryTrack] ?? item.primaryTrack}</div>
                   </div>
