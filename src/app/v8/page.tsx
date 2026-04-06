@@ -23,6 +23,8 @@ export default function MichiV8Page() {
 
   const todayRecipe = progressionSystem.SESSION_RECIPES[0]
   const currentMilestone = progressionSystem.PROGRESS_MILESTONES[1]
+  const weeklyRhythm = progressionSystem.WEEKLY_RHYTHMS[0]
+  const reentryRule = progressionSystem.REENTRY_STATE_RULES[3]
   const reviewSet = finalReleasePack.FINAL_REVIEW_SETS[1]
   const realityDeepCards = finalReleasePack.FINAL_REALITY_DEEP_CARDS.slice(0, 3)
   const pathDecision = practicalPathKits.DECISION_SHEETS[0]
@@ -127,6 +129,19 @@ export default function MichiV8Page() {
               </div>
             </section>
 
+            <section style={mistCard}>
+              {sectionTitle('Мягкий возврат', 'Что делать, если ритм рассыпался', reentryRule.description)}
+              <div style={{ padding: '12px 14px', borderRadius: 18, background: '#fffdf9', border: '1px solid #e7ddd2', lineHeight: 1.6 }}>
+                {reentryRule.firstMessage}
+              </div>
+              <div style={{ marginTop: 10, fontSize: 13, color: '#5f4a2f', fontWeight: 700 }}>Лучший режим сейчас</div>
+              <div style={{ marginTop: 4, ...muted }}>{reentryRule.recommendedMode}</div>
+              <div style={{ marginTop: 10, fontSize: 13, color: '#5f4a2f', fontWeight: 700 }}>Чего избегать</div>
+              <ul style={{ margin: '6px 0 0', paddingLeft: 18, lineHeight: 1.75 }}>
+                {reentryRule.avoid.map((item: string) => <li key={item}>{item}</li>)}
+              </ul>
+            </section>
+
             <section style={{ ...mistCard, overflow: 'hidden', position: 'relative' }}>
               <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(180deg, rgba(247,241,232,0.76), rgba(247,241,232,0.94)), url(${pathVisual?.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
               <div style={{ position: 'relative', zIndex: 1 }}>
@@ -145,6 +160,19 @@ export default function MichiV8Page() {
                     <div style={{ fontSize: 26, fontWeight: 700, lineHeight: 1 }}>{c.front}</div>
                     <div style={{ marginTop: 6, fontSize: 15, color: '#655b4d' }}>{c.back}</div>
                     <div style={{ marginTop: 4, fontSize: 12, color: '#9a8d7d' }}>{c.hint}</div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section style={warmCard}>
+              {sectionTitle('Ритм недели', weeklyRhythm.title, weeklyRhythm.whyItWorks)}
+              <div style={{ display: 'grid', gap: 10 }}>
+                {weeklyRhythm.sessions.map((item: any) => (
+                  <div key={item.dayLabel} style={{ border: '1px solid #eadfce', borderRadius: 16, padding: 12, background: '#fffdf9' }}>
+                    <div style={{ fontSize: 12, color: '#8d8274' }}>{item.dayLabel}</div>
+                    <div style={{ fontSize: 15, fontWeight: 700, marginTop: 2 }}>{item.mode}</div>
+                    <div style={{ marginTop: 4, ...muted }}>Главный трек: {item.primaryTrack}</div>
                   </div>
                 ))}
               </div>
