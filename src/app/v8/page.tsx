@@ -1,12 +1,12 @@
 'use client'
 import { useMemo, useState } from 'react'
-import MICHI_TWO_YEAR_CURRICULUM from '../../../../content/curriculum'
-import progressionSystem from '../../../../content/progression_system'
-import practicalPathKits from '../../../../content/practical_path_kits'
-import lessonSequencesModule from '../../../../content/lesson_sequences'
-import finalReleasePack from '../../../../content/final_release_pack'
-import designAcademicPack from '../../../../content/design_academic_pack'
-import factualGuidanceModule from '../../../../content/factual_guidance'
+import MICHI_TWO_YEAR_CURRICULUM from '../../../content/curriculum'
+import progressionSystem from '../../../content/progression_system'
+import practicalPathKits from '../../../content/practical_path_kits'
+import lessonSequencesModule from '../../../content/lesson_sequences'
+import finalReleasePack from '../../../content/final_release_pack'
+import designAcademicPack from '../../../content/design_academic_pack'
+import factualGuidanceModule from '../../../content/factual_guidance'
 import { getDesignTrackVisual, getHeroVisual, getPathVisual } from '@/lib/visuals'
 
 type TabId = 'today' | 'path' | 'design' | 'factual'
@@ -53,7 +53,7 @@ export default function MichiV8Page() {
     <div style={{ minHeight: '100dvh', background: 'linear-gradient(180deg, #f8f2e8 0%, #efe6d7 100%)', color: '#2c2925' }}>
       <div style={{ maxWidth: 760, margin: '0 auto', padding: '22px 16px 56px' }}>
         <header style={{ marginBottom: 16 }}>
-          <div style={{ fontSize: 12, letterSpacing: '0.08em', color: '#8c8175' }}>MICHI JOURNEY · 道</div>
+          <div style={{ fontSize: 12, letterSpacing: '0.08em', color: '#8c8175' }}>MICHI JOURNEY · 道 · v8</div>
           <h1 style={{ margin: '10px 0 10px', fontSize: 30, lineHeight: 1.12 }}>Тихий путь к японскому и настоящей Японии</h1>
           <p style={{ ...muted, margin: 0, maxWidth: 620 }}>
             Более тёплая и мобильная поверхность: меньше ощущения dashboard, больше ощущения живого путешествия с практической опорой.
@@ -72,19 +72,7 @@ export default function MichiV8Page() {
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 18 }}>
               {tabs.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => setTab(item.id)}
-                  style={{
-                    borderRadius: 999,
-                    border: `1px solid ${tab === item.id ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.22)'}`,
-                    background: tab === item.id ? accent : 'rgba(255,255,255,0.12)',
-                    color: '#fff',
-                    padding: '10px 15px',
-                    cursor: 'pointer',
-                    fontWeight: 600,
-                  }}
-                >
+                <button key={item.id} onClick={() => setTab(item.id)} style={{ borderRadius: 999, border: `1px solid ${tab === item.id ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.22)'}`, background: tab === item.id ? accent : 'rgba(255,255,255,0.12)', color: '#fff', padding: '10px 15px', cursor: 'pointer', fontWeight: 600 }}>
                   {item.label}
                 </button>
               ))}
@@ -106,11 +94,7 @@ export default function MichiV8Page() {
                   </div>
                 ))}
               </div>
-              <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid #ece3d7', ...muted }}>
-                <strong style={{ color: '#5f4a2f' }}>Сигнал успеха:</strong> {todayRecipe.successSignal}
-              </div>
             </section>
-
             <section style={{ ...card, overflow: 'hidden', position: 'relative' }}>
               <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(180deg, rgba(247,241,232,0.76), rgba(247,241,232,0.94)), url(${pathVisual?.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
               <div style={{ position: 'relative', zIndex: 1 }}>
@@ -121,15 +105,8 @@ export default function MichiV8Page() {
                 </ul>
               </div>
             </section>
-
             <section style={card}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12, marginBottom: 10 }}>
-                <div>
-                  <div style={{ fontSize: 12, color: accent }}>Повторение без стыда</div>
-                  <h3 style={{ margin: '4px 0 0', fontSize: 24 }}>{reviewSet.title}</h3>
-                </div>
-                <div style={{ fontSize: 12, color: '#8a8072' }}>{reviewSet.levelBand}</div>
-              </div>
+              <div style={{ fontSize: 12, color: accent, marginBottom: 8 }}>Повторение без стыда</div>
               <div style={{ display: 'grid', gap: 10 }}>
                 {reviewSet.cards.slice(0, 4).map((c: any) => (
                   <div key={c.front} style={{ border: '1px solid #ece3d7', borderRadius: 16, padding: 14, background: '#fffdf9' }}>
@@ -140,7 +117,6 @@ export default function MichiV8Page() {
                 ))}
               </div>
             </section>
-
             <section style={card}>
               <div style={{ fontSize: 12, color: accent, marginBottom: 8 }}>Первые месяцы пути</div>
               <div style={{ display: 'grid', gap: 12 }}>
@@ -165,32 +141,25 @@ export default function MichiV8Page() {
               <div style={{ position: 'relative', zIndex: 1, color: '#fff' }}>
                 <div style={{ fontSize: 12, opacity: 0.82, marginBottom: 8 }}>Path to Japan</div>
                 <h3 style={{ margin: '0 0 8px', fontSize: 28, lineHeight: 1.14 }}>Не мечта вообще, а следующий реальный шаг</h3>
-                <p style={{ margin: 0, color: 'rgba(255,255,255,0.84)', lineHeight: 1.6 }}>
-                  Здесь путь к Японии разбирается как проверяемая траектория: что выяснить, что сравнить и где не перепутать красивое желание с реальной процедурой.
-                </p>
+                <p style={{ margin: 0, color: 'rgba(255,255,255,0.84)', lineHeight: 1.6 }}>Здесь путь к Японии разбирается как проверяемая траектория: что выяснить, что сравнить и где не перепутать красивое желание с реальной процедурой.</p>
               </div>
             </section>
             <section style={card}>
               <div style={{ fontSize: 12, color: accent, marginBottom: 8 }}>Лист решения</div>
               <h3 style={{ margin: '0 0 8px', fontSize: 24 }}>{pathDecision.title}</h3>
               <p style={{ ...muted, margin: '0 0 12px' }}>{pathDecision.keyQuestion}</p>
-              <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.85 }}>
-                {pathDecision.comparePoints.map((p: string) => <li key={p}>{p}</li>)}
-              </ul>
+              <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.85 }}>{pathDecision.comparePoints.map((p: string) => <li key={p}>{p}</li>)}</ul>
             </section>
             <section style={card}>
               <div style={{ fontSize: 12, color: accent, marginBottom: 8 }}>Практический сценарий</div>
               <h3 style={{ margin: '0 0 8px', fontSize: 24 }}>{pathScenario.title}</h3>
               <p style={{ ...muted, margin: '0 0 12px' }}>{pathScenario.situation}</p>
-              <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.85 }}>
-                {pathScenario.usefulMoves.map((m: string) => <li key={m}>{m}</li>)}
-              </ul>
+              <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.85 }}>{pathScenario.usefulMoves.map((m: string) => <li key={m}>{m}</li>)}</ul>
             </section>
             <section style={card}>
               <div style={{ fontSize: 12, color: accent, marginBottom: 8 }}>Переход к учебному японскому</div>
               <h3 style={{ margin: '0 0 8px', fontSize: 24 }}>{bridgePack.title}</h3>
               <p style={{ ...muted, margin: '0 0 10px' }}>{bridgePack.objective}</p>
-              <div style={{ fontSize: 14, color: '#625444' }}><strong>Сдвиг:</strong> {bridgePack.expectedShift}</div>
             </section>
           </div>
         )}
@@ -202,15 +171,13 @@ export default function MichiV8Page() {
               <div style={{ position: 'relative', zIndex: 1 }}>
                 <div style={{ fontSize: 12, color: accent, marginBottom: 8 }}>Design track</div>
                 <h3 style={{ margin: '0 0 8px', fontSize: 28, lineHeight: 1.16 }}>Дизайн как настоящая японская траектория</h3>
-                <p style={{ ...muted, margin: 0 }}>Не просто красивые картинки, а язык для critique, portfolio talk и студийного будущего.</p>
+                <p style={{ ...muted, margin: 0 }}>Не просто красивые картинки, а язык для critique и реального студийного будущего.</p>
               </div>
             </section>
             <section style={card}>
               <div style={{ fontSize: 12, color: accent, marginBottom: 8 }}>Язык critique</div>
               <h3 style={{ margin: '0 0 8px', fontSize: 24 }}>{critiqueCard.title}</h3>
-              <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.8 }}>
-                {critiqueCard.sentenceFrames.map((f: string) => <li key={f}>{f}</li>)}
-              </ul>
+              <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.8 }}>{critiqueCard.sentenceFrames.map((f: string) => <li key={f}>{f}</li>)}</ul>
             </section>
             <section style={card}>
               <div style={{ fontSize: 12, color: accent, marginBottom: 8 }}>Лексика дизайна</div>
@@ -240,9 +207,7 @@ export default function MichiV8Page() {
             </section>
             <section style={card}>
               <div style={{ fontSize: 12, color: accent, marginBottom: 8 }}>Правила доверия</div>
-              <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.8 }}>
-                {sourceRules.map((r: any) => <li key={r.id}>{r.rule}</li>)}
-              </ul>
+              <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.8 }}>{sourceRules.map((r: any) => <li key={r.id}>{r.rule}</li>)}</ul>
             </section>
           </div>
         )}
