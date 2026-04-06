@@ -45,90 +45,32 @@ const trackLabels: Record<string, string> = {
 }
 
 const recipeSurface: Record<string, { title: string; bestFor: string; successSignal: string; steps?: string[] }> = {
-  session_001: {
-    title: 'Маленький перезапуск после трения',
-    bestFor: 'Для дня, когда начать тяжелее, чем реально позаниматься.',
-    successSignal: 'Сессия закончилась, и появляется чувство: «я снова в движении».',
-    steps: ['Открой одну знакомую сцену', 'Сделай 2 элемента повторения', 'Скажи или запиши один маленький ответ'],
-  },
-  session_002: {
-    title: 'Спокойная ежедневная сессия',
-    bestFor: 'Для обычного дня, когда внимания хватает на компактный, но цельный цикл.',
-    successSignal: 'Ты коснулся входа, переноса и закрепления в одном коротком круге.',
-    steps: ['Одна сцена или короткий фрагмент', 'Одна задача на перенос', 'Один цикл повторения', 'Одна заметка про следующий шаг'],
-  },
-  session_003: {
-    title: 'Фокус на учебной готовности',
-    bestFor: 'Для дня, когда хочется сильнее продвинуться в школьно-академическом японском.',
-    successSignal: 'Учебный язык начинает ощущаться рабочим, а не только выученным.',
-    steps: ['Разобрать одну инструкцию или короткий учебный текст', 'Сделать краткую заметку или summary', 'Закончить набором практических survival-фраз'],
-  },
-  session_004: {
-    title: 'Мягкий catch-up без спирали вины',
-    bestFor: 'После нескольких пропущенных дней, когда легко сорваться в попытку догнать всё сразу.',
-    successSignal: 'Непрерывность вернулась, но без перегруза и самонаказания.',
-    steps: ['Выбери только один трек', 'Сделай одно лёгкое re-entry действие', 'Повтори один знакомый набор', 'Остановись на ощущении успеха'],
-  },
-  session_005: {
-    title: 'Мост к N3/N2 через смысл',
-    bestFor: 'Когда нужен более серьёзный exam-facing ритм, но без потери живого смысла продукта.',
-    successSignal: 'Появляется ощущение, что ты тренируешь давление через осмысленные задачи, а не через сухую дрель.',
-    steps: ['Прочитать или прослушать ради общего смысла', 'Вытащить ключевые точки', 'Сделать одну compare/decision задачу', 'Закончить summary или коротким ответом'],
-  },
-  session_006: {
-    title: 'День дизайна на японском',
-    bestFor: 'Когда хочется соединить японский с дизайнерской идентичностью и будущей учёбой.',
-    successSignal: 'Дизайн начинает ощущаться как японоговорящий путь, а не только как мечта-картинка.',
-    steps: ['Посмотреть один визуальный пример', 'Использовать одну critique-card', 'Объяснить одно дизайнерское решение или эффект', 'Сохранить одну фразу для будущего portfolio talk'],
-  },
+  session_001: { title: 'Маленький перезапуск после трения', bestFor: 'Для дня, когда начать тяжелее, чем реально позаниматься.', successSignal: 'Сессия закончилась, и появляется чувство: «я снова в движении».', steps: ['Открой одну знакомую сцену', 'Сделай 2 элемента повторения', 'Скажи или запиши один маленький ответ'] },
+  session_002: { title: 'Спокойная ежедневная сессия', bestFor: 'Для обычного дня, когда внимания хватает на компактный, но цельный цикл.', successSignal: 'Ты коснулся входа, переноса и закрепления в одном коротком круге.', steps: ['Одна сцена или короткий фрагмент', 'Одна задача на перенос', 'Один цикл повторения', 'Одна заметка про следующий шаг'] },
+  session_003: { title: 'Фокус на учебной готовности', bestFor: 'Для дня, когда хочется сильнее продвинуться в школьно-академическом японском.', successSignal: 'Учебный язык начинает ощущаться рабочим, а не только выученным.', steps: ['Разобрать одну инструкцию или короткий учебный текст', 'Сделать краткую заметку или summary', 'Закончить набором практических survival-фраз'] },
+  session_004: { title: 'Мягкий catch-up без спирали вины', bestFor: 'После нескольких пропущенных дней, когда легко сорваться в попытку догнать всё сразу.', successSignal: 'Непрерывность вернулась, но без перегруза и самонаказания.', steps: ['Выбери только один трек', 'Сделай одно лёгкое re-entry действие', 'Повтори один знакомый набор', 'Остановись на ощущении успеха'] },
+  session_005: { title: 'Мост к N3/N2 через смысл', bestFor: 'Когда нужен более серьёзный exam-facing ритм, но без потери живого смысла продукта.', successSignal: 'Появляется ощущение, что ты тренируешь давление через осмысленные задачи, а не через сухую дрель.', steps: ['Прочитать или прослушать ради общего смысла', 'Вытащить ключевые точки', 'Сделать одну compare/decision задачу', 'Закончить summary или коротким ответом'] },
+  session_006: { title: 'День дизайна на японском', bestFor: 'Когда хочется соединить японский с дизайнерской идентичностью и будущей учёбой.', successSignal: 'Дизайн начинает ощущаться как японоговорящий путь, а не только как мечта-картинка.', steps: ['Посмотреть один визуальный пример', 'Использовать одну critique-card', 'Объяснить одно дизайнерское решение или эффект', 'Сохранить одну фразу для будущего portfolio talk'] },
 }
 
 const milestoneSurface: Record<string, { title: string; learnerCan: string[] }> = {
-  milestone_001: {
-    title: 'Повседневная опора',
-    learnerCan: ['понимать базовый повседневный японский', 'выживать в маленьких реальных взаимодействиях', 'описывать простые предпочтения и наблюдения'],
-  },
-  milestone_002: {
-    title: 'Связный функциональный японский',
-    learnerCan: ['следить за более длинными объяснениями', 'сравнивать варианты', 'задавать уточняющие вопросы', 'разбирать короткие учебные задачи'],
-  },
-  milestone_003: {
-    title: 'Готовность к учёбе и дизайну',
-    learnerCan: ['меньше паниковать перед учебными инструкциями', 'держать lecture-like структуру', 'использовать critique и portfolio language', 'просить помощь и уточнение в институциональной среде'],
-  },
+  milestone_001: { title: 'Повседневная опора', learnerCan: ['понимать базовый повседневный японский', 'выживать в маленьких реальных взаимодействиях', 'описывать простые предпочтения и наблюдения'] },
+  milestone_002: { title: 'Связный функциональный японский', learnerCan: ['следить за более длинными объяснениями', 'сравнивать варианты', 'задавать уточняющие вопросы', 'разбирать короткие учебные задачи'] },
+  milestone_003: { title: 'Готовность к учёбе и дизайну', learnerCan: ['меньше паниковать перед учебными инструкциями', 'держать lecture-like структуру', 'использовать critique и portfolio language', 'просить помощь и уточнение в институциональной среде'] },
 }
 
 const rhythmSurface: Record<string, { title: string; whyItWorks: string; days: Record<string, string> }> = {
-  weekly_001: {
-    title: 'Спокойный ритм пяти касаний',
-    whyItWorks: 'Ты касаешься разных слоёв продукта без требования к идеальной семидневной серии.',
-    days: { 'Day 1': 'День 1', 'Day 2': 'День 2', 'Day 3': 'День 3', 'Day 4': 'День 4', 'Day 5': 'День 5' },
-  },
-  weekly_002: {
-    title: 'Ритм с опорой на учёбу',
-    whyItWorks: 'Академическая сложность растёт постепенно и не ломает мотивацию и дизайн-идентичность.',
-    days: { 'Day 1': 'День 1', 'Day 2': 'День 2', 'Day 3': 'День 3', 'Day 4': 'День 4', 'Day 5': 'День 5' },
-  },
-  weekly_003: {
-    title: 'Ритм восстановления после сбоев',
-    whyItWorks: 'Сначала возвращается непрерывность, а уже потом интенсивность.',
-    days: { 'Day 1': 'День 1', 'Day 2': 'День 2', 'Day 3': 'День 3', 'Day 4': 'День 4', 'Day 5': 'День 5' },
-  },
+  weekly_001: { title: 'Спокойный ритм пяти касаний', whyItWorks: 'Ты касаешься разных слоёв продукта без требования к идеальной семидневной серии.', days: { 'Day 1': 'День 1', 'Day 2': 'День 2', 'Day 3': 'День 3', 'Day 4': 'День 4', 'Day 5': 'День 5' } },
+  weekly_002: { title: 'Ритм с опорой на учёбу', whyItWorks: 'Академическая сложность растёт постепенно и не ломает мотивацию и дизайн-идентичность.', days: { 'Day 1': 'День 1', 'Day 2': 'День 2', 'Day 3': 'День 3', 'Day 4': 'День 4', 'Day 5': 'День 5' } },
+  weekly_003: { title: 'Ритм восстановления после сбоев', whyItWorks: 'Сначала возвращается непрерывность, а уже потом интенсивность.', days: { 'Day 1': 'День 1', 'Day 2': 'День 2', 'Day 3': 'День 3', 'Day 4': 'День 4', 'Day 5': 'День 5' } },
 }
 
 export default function MichiV8Page() {
   const [tab, setTab] = useState<TabId>('today')
   const [learnerState, setLearnerState] = useState<ReentryState>('returning')
-
   const reentryRule = progressionSystem.REENTRY_STATE_RULES.find((rule) => rule.state === learnerState) ?? progressionSystem.REENTRY_STATE_RULES[3]
   const rawActiveRecipe = progressionSystem.SESSION_RECIPES.find((recipe) => recipe.mode === reentryRule.recommendedMode) ?? progressionSystem.SESSION_RECIPES[0]
-  const weeklyRhythm =
-    learnerState === 'momentum' || learnerState === 'fresh'
-      ? progressionSystem.WEEKLY_RHYTHMS[1]
-      : learnerState === 'overwhelmed' || learnerState === 'returning'
-        ? progressionSystem.WEEKLY_RHYTHMS[2]
-        : progressionSystem.WEEKLY_RHYTHMS[0]
-
+  const weeklyRhythm = learnerState === 'momentum' || learnerState === 'fresh' ? progressionSystem.WEEKLY_RHYTHMS[1] : learnerState === 'overwhelmed' || learnerState === 'returning' ? progressionSystem.WEEKLY_RHYTHMS[2] : progressionSystem.WEEKLY_RHYTHMS[0]
   const currentMilestone = progressionSystem.PROGRESS_MILESTONES[1]
   const reviewSet = finalReleasePack.FINAL_REVIEW_SETS[1]
   const realityDeepCards = finalReleasePack.FINAL_REALITY_DEEP_CARDS.slice(0, 3)
@@ -142,55 +84,26 @@ export default function MichiV8Page() {
   const factualCard = factualGuidanceModule.FACTUAL_GUIDANCE_CARDS[0]
   const sourceRules = factualGuidanceModule.SOURCE_POLICY_RULES.slice(0, 3)
   const nextMonths = useMemo(() => MICHI_TWO_YEAR_CURRICULUM.slice(0, 4), [])
-
   const activeRecipeSurface = recipeSurface[rawActiveRecipe.id]
   const milestoneSurfaceView = milestoneSurface[currentMilestone.id]
   const rhythmSurfaceView = rhythmSurface[weeklyRhythm.id]
-
   const heroVisual = getHeroVisual()
   const designVisual = getDesignTrackVisual()
   const pathVisual = getPathVisual()
-
-  const card = {
-    background: 'rgba(255,255,255,0.82)',
-    border: '1px solid #e8ddcf',
-    borderRadius: 24,
-    padding: 18,
-    boxShadow: '0 14px 40px rgba(52, 34, 12, 0.06)',
-    backdropFilter: 'blur(10px)',
-  } as const
-
-  const warmCard = {
-    ...card,
-    background: 'rgba(255,250,244,0.88)',
-    border: '1px solid #ead8c4',
-  } as const
-
-  const mistCard = {
-    ...card,
-    background: 'rgba(248,244,238,0.88)',
-  } as const
-
+  const card = { background: 'rgba(255,255,255,0.82)', border: '1px solid #e8ddcf', borderRadius: 24, padding: 18, boxShadow: '0 14px 40px rgba(52, 34, 12, 0.06)', backdropFilter: 'blur(10px)' } as const
+  const warmCard = { ...card, background: 'rgba(255,250,244,0.88)', border: '1px solid #ead8c4' } as const
+  const mistCard = { ...card, background: 'rgba(248,244,238,0.88)' } as const
   const muted = { color: '#7e7468', fontSize: 13, lineHeight: 1.6 } as const
   const accent = '#9a7442'
-
-  const sectionTitle = (eyebrow: string, title: string, body?: string) => (
-    <>
-      <div style={{ fontSize: 12, color: accent, marginBottom: 8 }}>{eyebrow}</div>
-      <h3 style={{ margin: '0 0 8px', fontSize: 28, lineHeight: 1.16 }}>{title}</h3>
-      {body && <p style={{ ...muted, margin: '0 0 14px' }}>{body}</p>}
-    </>
-  )
+  const sectionTitle = (eyebrow: string, title: string, body?: string) => <><div style={{ fontSize: 12, color: accent, marginBottom: 8 }}>{eyebrow}</div><h3 style={{ margin: '0 0 8px', fontSize: 28, lineHeight: 1.16 }}>{title}</h3>{body && <p style={{ ...muted, margin: '0 0 14px' }}>{body}</p>}</>
 
   return (
     <div style={{ minHeight: '100dvh', background: 'linear-gradient(180deg, #f8f2e8 0%, #efe6d7 100%)', color: '#2c2925' }}>
-      <div style={{ maxWidth: 760, margin: '0 auto', padding: '22px 16px 56px' }}>
+      <div style={{ maxWidth: 760, margin: '0 auto', padding: '22px 16px 96px' }}>
         <header style={{ marginBottom: 16 }}>
           <div style={{ fontSize: 12, letterSpacing: '0.08em', color: '#8c8175' }}>MICHI JOURNEY · 道</div>
           <h1 style={{ margin: '10px 0 10px', fontSize: 30, lineHeight: 1.12 }}>Тихий путь к японскому и настоящей Японии</h1>
-          <p style={{ ...muted, margin: 0, maxWidth: 620 }}>
-            Более тёплая и мобильная поверхность: меньше ощущения учебной панели, больше ощущения живого путешествия с практической опорой.
-          </p>
+          <p style={{ ...muted, margin: 0, maxWidth: 620 }}>Более тёплая и мобильная поверхность: меньше ощущения учебной панели, больше ощущения живого путешествия с практической опорой.</p>
         </header>
 
         <section style={{ ...card, position: 'relative', overflow: 'hidden', minHeight: 320, marginBottom: 16 }}>
@@ -199,256 +112,26 @@ export default function MichiV8Page() {
             <div>
               <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.76)', marginBottom: 8 }}>Сегодняшний спокойный вход</div>
               <h2 style={{ margin: '0 0 10px', fontSize: 36, lineHeight: 1.04, color: '#fff', maxWidth: 540 }}>Начать с малого. Не потерять из виду большое.</h2>
-              <p style={{ margin: 0, maxWidth: 520, color: 'rgba(255,255,255,0.88)', lineHeight: 1.65 }}>
-                Michi помогает сделать один посильный шаг сегодня, а потом мягко связать его с реальным путём к языку, учёбе и жизни в Японии.
-              </p>
-
-              <div style={{ marginTop: 16, maxWidth: 420, padding: '12px 14px', borderRadius: 18, background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.18)', backdropFilter: 'blur(8px)' }}>
-                <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.68)', marginBottom: 4 }}>Шёпот Michi</div>
-                <div style={{ color: '#fff', lineHeight: 1.6 }}>
-                  Иногда путь снова начинается не с плана на два года, а с одной короткой сцены и ощущения: «сегодня я всё-таки вернулся».
-                </div>
-              </div>
+              <p style={{ margin: 0, maxWidth: 520, color: 'rgba(255,255,255,0.88)', lineHeight: 1.65 }}>Michi помогает сделать один посильный шаг сегодня, а потом мягко связать его с реальным путём к языку, учёбе и жизни в Японии.</p>
+              <div style={{ marginTop: 16, maxWidth: 420, padding: '12px 14px', borderRadius: 18, background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.18)', backdropFilter: 'blur(8px)' }}><div style={{ fontSize: 11, color: 'rgba(255,255,255,0.68)', marginBottom: 4 }}>Шёпот Michi</div><div style={{ color: '#fff', lineHeight: 1.6 }}>Иногда путь снова начинается не с плана на два года, а с одной короткой сцены и ощущения: «сегодня я всё-таки вернулся».</div></div>
             </div>
-
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 18 }}>
-              {tabs.map((item) => (
-                <button key={item.id} onClick={() => setTab(item.id)} style={{ borderRadius: 999, border: `1px solid ${tab === item.id ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.22)'}`, background: tab === item.id ? accent : 'rgba(255,255,255,0.12)', color: '#fff', padding: '10px 15px', cursor: 'pointer', fontWeight: 600 }}>
-                  {item.label}
-                </button>
-              ))}
+              {tabs.map((item) => <button key={item.id} onClick={() => setTab(item.id)} style={{ borderRadius: 999, border: `1px solid ${tab === item.id ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.22)'}`, background: tab === item.id ? accent : 'rgba(255,255,255,0.12)', color: '#fff', padding: '10px 15px', cursor: 'pointer', fontWeight: 600 }}>{item.label}</button>)}
+              <a href="/chat" style={{ borderRadius: 999, border: '1px solid rgba(255,255,255,0.22)', background: 'rgba(255,255,255,0.18)', color: '#fff', padding: '10px 15px', textDecoration: 'none', fontWeight: 600 }}>Поговорить с Michi</a>
             </div>
           </div>
         </section>
 
-        {tab === 'today' && (
-          <div style={{ display: 'grid', gap: 14 }}>
-            <section style={warmCard}>
-              {sectionTitle('Подобрано под состояние', activeRecipeSurface?.title ?? rawActiveRecipe.title, activeRecipeSurface?.bestFor ?? rawActiveRecipe.bestFor)}
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 12 }}>
-                {(Object.keys(stateLabels) as ReentryState[]).map((state) => (
-                  <button
-                    key={state}
-                    onClick={() => setLearnerState(state)}
-                    style={{
-                      borderRadius: 999,
-                      border: `1px solid ${learnerState === state ? '#cba77b' : '#eadfce'}`,
-                      background: learnerState === state ? 'rgba(154,116,66,0.12)' : '#fffdf9',
-                      color: '#4d3b25',
-                      padding: '8px 12px',
-                      cursor: 'pointer',
-                      fontSize: 12,
-                      fontWeight: 600,
-                    }}
-                  >
-                    {stateLabels[state]}
-                  </button>
-                ))}
-              </div>
-              <div style={{ display: 'grid', gap: 10 }}>
-                {(activeRecipeSurface?.steps ?? rawActiveRecipe.steps).map((step: string, index: number) => (
-                  <div key={step} style={{ display: 'grid', gridTemplateColumns: '28px 1fr', gap: 10, alignItems: 'start' }}>
-                    <div style={{ width: 28, height: 28, borderRadius: 999, background: 'rgba(154,116,66,0.12)', color: accent, display: 'grid', placeItems: 'center', fontWeight: 700 }}>{index + 1}</div>
-                    <div style={{ fontSize: 16, lineHeight: 1.5 }}>{step}</div>
-                  </div>
-                ))}
-              </div>
-              <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid #eadfce', ...muted }}>
-                <strong style={{ color: '#5f4a2f' }}>Сигнал успеха:</strong> {activeRecipeSurface?.successSignal ?? rawActiveRecipe.successSignal}
-              </div>
-            </section>
+        {tab === 'today' && <div style={{ display: 'grid', gap: 14 }}><section style={warmCard}>{sectionTitle('Подобрано под состояние', activeRecipeSurface?.title ?? rawActiveRecipe.title, activeRecipeSurface?.bestFor ?? rawActiveRecipe.bestFor)}<div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 12 }}>{(Object.keys(stateLabels) as ReentryState[]).map((state) => <button key={state} onClick={() => setLearnerState(state)} style={{ borderRadius: 999, border: `1px solid ${learnerState === state ? '#cba77b' : '#eadfce'}`, background: learnerState === state ? 'rgba(154,116,66,0.12)' : '#fffdf9', color: '#4d3b25', padding: '8px 12px', cursor: 'pointer', fontSize: 12, fontWeight: 600 }}>{stateLabels[state]}</button>)}</div><div style={{ display: 'grid', gap: 10 }}>{(activeRecipeSurface?.steps ?? rawActiveRecipe.steps).map((step: string, index: number) => <div key={step} style={{ display: 'grid', gridTemplateColumns: '28px 1fr', gap: 10, alignItems: 'start' }}><div style={{ width: 28, height: 28, borderRadius: 999, background: 'rgba(154,116,66,0.12)', color: accent, display: 'grid', placeItems: 'center', fontWeight: 700 }}>{index + 1}</div><div style={{ fontSize: 16, lineHeight: 1.5 }}>{step}</div></div>)}</div><div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid #eadfce', ...muted }}><strong style={{ color: '#5f4a2f' }}>Сигнал успеха:</strong> {activeRecipeSurface?.successSignal ?? rawActiveRecipe.successSignal}</div></section><section style={mistCard}>{sectionTitle('Мягкий возврат', 'Что делать, если ритм сейчас такой', reentryRule.description)}<div style={{ padding: '12px 14px', borderRadius: 18, background: '#fffdf9', border: '1px solid #e7ddd2', lineHeight: 1.6 }}>{reentryRule.firstMessage}</div><div style={{ marginTop: 10, fontSize: 13, color: '#5f4a2f', fontWeight: 700 }}>Лучший режим сейчас</div><div style={{ marginTop: 4, ...muted }}>{modeLabels[reentryRule.recommendedMode] ?? reentryRule.recommendedMode}</div><div style={{ marginTop: 10, fontSize: 13, color: '#5f4a2f', fontWeight: 700 }}>Чего избегать</div><ul style={{ margin: '6px 0 0', paddingLeft: 18, lineHeight: 1.75 }}>{reentryRule.avoid.map((item: string) => <li key={item}>{item}</li>)}</ul></section><section style={{ ...mistCard, overflow: 'hidden', position: 'relative' }}><div style={{ position: 'absolute', inset: 0, background: `linear-gradient(180deg, rgba(247,241,232,0.76), rgba(247,241,232,0.94)), url(${pathVisual?.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }} /><div style={{ position: 'relative', zIndex: 1 }}>{sectionTitle('Точка прогресса', milestoneSurfaceView?.title ?? currentMilestone.title)}<ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.85 }}>{(milestoneSurfaceView?.learnerCan ?? currentMilestone.learnerCan).map((item: string) => <li key={item}>{item}</li>)}</ul></div></section><section style={card}>{sectionTitle('Повторение без стыда', reviewSet.title, 'Без перегруза и без чувства, что нужно сначала снова стать идеальным учеником.')}<div style={{ display: 'grid', gap: 10 }}>{reviewSet.cards.slice(0, 4).map((c: any) => <div key={c.front} style={{ border: '1px solid #ece3d7', borderRadius: 16, padding: 14, background: '#fffdf9' }}><div style={{ fontSize: 26, fontWeight: 700, lineHeight: 1 }}>{c.front}</div><div style={{ marginTop: 6, fontSize: 15, color: '#655b4d' }}>{c.back}</div><div style={{ marginTop: 4, fontSize: 12, color: '#9a8d7d' }}>{c.hint}</div></div>)}</div></section><section style={warmCard}>{sectionTitle('Ритм недели', rhythmSurfaceView?.title ?? weeklyRhythm.title, rhythmSurfaceView?.whyItWorks ?? weeklyRhythm.whyItWorks)}<div style={{ display: 'grid', gap: 10 }}>{weeklyRhythm.sessions.map((item: any) => <div key={item.dayLabel} style={{ border: '1px solid #eadfce', borderRadius: 16, padding: 12, background: '#fffdf9' }}><div style={{ fontSize: 12, color: '#8d8274' }}>{rhythmSurfaceView?.days?.[item.dayLabel] ?? item.dayLabel}</div><div style={{ fontSize: 15, fontWeight: 700, marginTop: 2 }}>{modeLabels[item.mode] ?? item.mode}</div><div style={{ marginTop: 4, ...muted }}>Главный трек: {trackLabels[item.primaryTrack] ?? item.primaryTrack}</div></div>)}</div></section><section style={mistCard}>{sectionTitle('Первые месяцы пути', 'Как будет раскрываться маршрут', 'Не длинный абстрактный план, а последовательность спокойных этапов, в которых ритм важнее героизма.')}<div style={{ display: 'grid', gap: 12 }}>{nextMonths.map((m: any) => <div key={m.monthNumber} style={{ display: 'grid', gridTemplateColumns: '4px 1fr', gap: 12, alignItems: 'start' }}><div style={{ width: 4, borderRadius: 99, background: 'linear-gradient(180deg, #9a7442, #cfb186)', minHeight: 52 }} /><div><div style={{ fontSize: 12, color: '#8d8274' }}>Месяц {m.monthNumber} · {m.jlptTarget}</div><div style={{ fontSize: 16, fontWeight: 700, lineHeight: 1.35, marginTop: 2 }}>{m.title}</div></div></div>)}</div></section></div>}
 
-            <section style={mistCard}>
-              {sectionTitle('Мягкий возврат', 'Что делать, если ритм сейчас такой', reentryRule.description)}
-              <div style={{ padding: '12px 14px', borderRadius: 18, background: '#fffdf9', border: '1px solid #e7ddd2', lineHeight: 1.6 }}>
-                {reentryRule.firstMessage}
-              </div>
-              <div style={{ marginTop: 10, fontSize: 13, color: '#5f4a2f', fontWeight: 700 }}>Лучший режим сейчас</div>
-              <div style={{ marginTop: 4, ...muted }}>{modeLabels[reentryRule.recommendedMode] ?? reentryRule.recommendedMode}</div>
-              <div style={{ marginTop: 10, fontSize: 13, color: '#5f4a2f', fontWeight: 700 }}>Чего избегать</div>
-              <ul style={{ margin: '6px 0 0', paddingLeft: 18, lineHeight: 1.75 }}>
-                {reentryRule.avoid.map((item: string) => <li key={item}>{item}</li>)}
-              </ul>
-            </section>
+        {tab === 'path' && <div style={{ display: 'grid', gap: 14 }}><section style={{ ...card, overflow: 'hidden', position: 'relative' }}><div style={{ position: 'absolute', inset: 0, background: `linear-gradient(180deg, rgba(32,21,8,0.24), rgba(32,21,8,0.62)), url(${pathVisual?.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }} /><div style={{ position: 'relative', zIndex: 1, color: '#fff' }}><div style={{ fontSize: 12, opacity: 0.82, marginBottom: 8 }}>Путь в Японию</div><h3 style={{ margin: '0 0 8px', fontSize: 28, lineHeight: 1.14 }}>Не мечта вообще, а следующий реальный шаг</h3><p style={{ margin: 0, color: 'rgba(255,255,255,0.84)', lineHeight: 1.6 }}>Здесь путь к Японии разбирается как проверяемая траектория: что выяснить, что сравнить и где не перепутать красивое желание с реальной процедурой.</p></div></section><section style={warmCard}>{sectionTitle('Лист решения', pathDecision.title, pathDecision.keyQuestion)}<ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.85 }}>{pathDecision.comparePoints.map((p: string) => <li key={p}>{p}</li>)}</ul></section><section style={card}>{sectionTitle('Практический сценарий', pathScenario.title, pathScenario.situation)}<ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.85 }}>{pathScenario.usefulMoves.map((m: string) => <li key={m}>{m}</li>)}</ul></section><section style={mistCard}>{sectionTitle('Переход к учебному японскому', bridgePack.title, bridgePack.objective)}<div style={{ ...muted, marginTop: 4 }}><strong style={{ color: '#5f4a2f' }}>Сдвиг:</strong> {bridgePack.expectedShift}</div></section><section style={warmCard}>{sectionTitle('Практические истины', 'Что чаще всего ломает путь', 'Это не мотивирующие лозунги, а вещи, которые чаще всего путают planning и превращают его в хаос.')}<div style={{ display: 'grid', gap: 12 }}>{realityDeepCards.map((item: any) => <div key={item.id} style={{ border: '1px solid #eadfce', borderRadius: 18, padding: 14, background: '#fffdf9' }}><div style={{ fontSize: 16, fontWeight: 700, lineHeight: 1.35 }}>{item.title}</div><div style={{ marginTop: 6, ...muted }}>{item.practicalTruth}</div><div style={{ marginTop: 10, fontSize: 13, color: '#5f4a2f', fontWeight: 700 }}>Что сделать дальше</div><ul style={{ margin: '6px 0 0', paddingLeft: 18, lineHeight: 1.75 }}>{item.whatToDoNext.map((step: string) => <li key={step}>{step}</li>)}</ul></div>)}</div></section></div>}
 
-            <section style={{ ...mistCard, overflow: 'hidden', position: 'relative' }}>
-              <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(180deg, rgba(247,241,232,0.76), rgba(247,241,232,0.94)), url(${pathVisual?.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
-              <div style={{ position: 'relative', zIndex: 1 }}>
-                {sectionTitle('Точка прогресса', milestoneSurfaceView?.title ?? currentMilestone.title)}
-                <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.85 }}>
-                  {(milestoneSurfaceView?.learnerCan ?? currentMilestone.learnerCan).map((item: string) => <li key={item}>{item}</li>)}
-                </ul>
-              </div>
-            </section>
+        {tab === 'design' && <div style={{ display: 'grid', gap: 14 }}><section style={{ ...card, overflow: 'hidden', position: 'relative' }}><div style={{ position: 'absolute', inset: 0, background: `linear-gradient(180deg, rgba(255,250,244,0.70), rgba(255,250,244,0.92)), url(${designVisual?.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }} /><div style={{ position: 'relative', zIndex: 1 }}><div style={{ fontSize: 12, color: accent, marginBottom: 8 }}>Дизайн-трек</div><h3 style={{ margin: '0 0 8px', fontSize: 28, lineHeight: 1.16 }}>Дизайн как настоящая японская траектория</h3><p style={{ ...muted, margin: 0 }}>Не просто красивые картинки, а язык для critique, портфолио и реального студийного будущего.</p></div></section><section style={warmCard}>{sectionTitle('Язык critique', critiqueCard.title, 'Когда нравится визуал, но нужно ещё суметь объяснить, что именно работает и почему.')}<ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.8 }}>{critiqueCard.sentenceFrames.map((f: string) => <li key={f}>{f}</li>)}</ul><div style={{ marginTop: 10, ...muted }}><strong style={{ color: '#5f4a2f' }}>Микро-задача:</strong> {critiqueCard.microTask}</div></section><section style={mistCard}>{sectionTitle('Разговор о портфолио', portfolioFrame.title, 'Это уже не просто словарь, а структура ответа, которая пригодится для студийного разговора, презентации и приёмной логики.')}<div style={{ display: 'grid', gap: 10 }}>{portfolioFrame.structure.map((item: string) => <div key={item} style={{ border: '1px solid #e7ddd2', borderRadius: 16, padding: 12, background: '#fffdf9' }}>{item}</div>)}</div><div style={{ marginTop: 12, fontSize: 13, color: '#5f4a2f', fontWeight: 700 }}>Полезный японский</div><ul style={{ margin: '6px 0 0', paddingLeft: 18, lineHeight: 1.75 }}>{portfolioFrame.usefulJapanese.map((line: string) => <li key={line}>{line}</li>)}</ul></section><section style={card}>{sectionTitle('Лексика дизайна', designLexicon.title, 'Не просто слова, а строительный материал для обсуждения работ, интерфейсов и визуальных решений.')}<div style={{ display: 'grid', gap: 10 }}>{designLexicon.items.map((item: any) => <div key={item.jp} style={{ border: '1px solid #ece3d7', borderRadius: 16, padding: 14, background: '#fffdf9' }}><div style={{ display: 'flex', justifyContent: 'space-between', gap: 12, alignItems: 'baseline' }}><div style={{ fontSize: 24, fontWeight: 700 }}>{item.jp}</div><div style={{ fontSize: 12, color: '#9b8d7c' }}>{item.reading}</div></div><div style={{ marginTop: 4, fontSize: 14, color: '#6f6253' }}>{item.en}</div><div style={{ marginTop: 8, lineHeight: 1.55 }}>{item.use}</div></div>)}</div></section><section style={warmCard}>{sectionTitle('Учебная выживаемость', 'Фразы, которые реально помогают не теряться', 'Это уже ближе к жизни в аудитории, офисе и групповой работе, где важен не только язык, но и способность спокойно продолжать действие.')}<div style={{ display: 'grid', gap: 12 }}>{survivalPatterns.map((item: any) => <div key={item.id} style={{ border: '1px solid #eadfce', borderRadius: 18, padding: 14, background: '#fffdf9' }}><div style={{ fontSize: 15, fontWeight: 700 }}>{item.title}</div><div style={{ marginTop: 6, ...muted }}>{item.useCase}</div><ul style={{ margin: '8px 0 0', paddingLeft: 18, lineHeight: 1.75 }}>{item.japanese.map((line: string) => <li key={line}>{line}</li>)}</ul></div>)}</div></section></div>}
 
-            <section style={card}>
-              {sectionTitle('Повторение без стыда', reviewSet.title, 'Без перегруза и без чувства, что нужно сначала снова стать идеальным учеником.')}
-              <div style={{ display: 'grid', gap: 10 }}>
-                {reviewSet.cards.slice(0, 4).map((c: any) => (
-                  <div key={c.front} style={{ border: '1px solid #ece3d7', borderRadius: 16, padding: 14, background: '#fffdf9' }}>
-                    <div style={{ fontSize: 26, fontWeight: 700, lineHeight: 1 }}>{c.front}</div>
-                    <div style={{ marginTop: 6, fontSize: 15, color: '#655b4d' }}>{c.back}</div>
-                    <div style={{ marginTop: 4, fontSize: 12, color: '#9a8d7d' }}>{c.hint}</div>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section style={warmCard}>
-              {sectionTitle('Ритм недели', rhythmSurfaceView?.title ?? weeklyRhythm.title, rhythmSurfaceView?.whyItWorks ?? weeklyRhythm.whyItWorks)}
-              <div style={{ display: 'grid', gap: 10 }}>
-                {weeklyRhythm.sessions.map((item: any) => (
-                  <div key={item.dayLabel} style={{ border: '1px solid #eadfce', borderRadius: 16, padding: 12, background: '#fffdf9' }}>
-                    <div style={{ fontSize: 12, color: '#8d8274' }}>{rhythmSurfaceView?.days?.[item.dayLabel] ?? item.dayLabel}</div>
-                    <div style={{ fontSize: 15, fontWeight: 700, marginTop: 2 }}>{modeLabels[item.mode] ?? item.mode}</div>
-                    <div style={{ marginTop: 4, ...muted }}>Главный трек: {trackLabels[item.primaryTrack] ?? item.primaryTrack}</div>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section style={mistCard}>
-              {sectionTitle('Первые месяцы пути', 'Как будет раскрываться маршрут', 'Не длинный абстрактный план, а последовательность спокойных этапов, в которых ритм важнее героизма.')}
-              <div style={{ display: 'grid', gap: 12 }}>
-                {nextMonths.map((m: any) => (
-                  <div key={m.monthNumber} style={{ display: 'grid', gridTemplateColumns: '4px 1fr', gap: 12, alignItems: 'start' }}>
-                    <div style={{ width: 4, borderRadius: 99, background: 'linear-gradient(180deg, #9a7442, #cfb186)', minHeight: 52 }} />
-                    <div>
-                      <div style={{ fontSize: 12, color: '#8d8274' }}>Месяц {m.monthNumber} · {m.jlptTarget}</div>
-                      <div style={{ fontSize: 16, fontWeight: 700, lineHeight: 1.35, marginTop: 2 }}>{m.title}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-          </div>
-        )}
-
-        {tab === 'path' && (
-          <div style={{ display: 'grid', gap: 14 }}>
-            <section style={{ ...card, overflow: 'hidden', position: 'relative' }}>
-              <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(180deg, rgba(32,21,8,0.24), rgba(32,21,8,0.62)), url(${pathVisual?.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
-              <div style={{ position: 'relative', zIndex: 1, color: '#fff' }}>
-                <div style={{ fontSize: 12, opacity: 0.82, marginBottom: 8 }}>Путь в Японию</div>
-                <h3 style={{ margin: '0 0 8px', fontSize: 28, lineHeight: 1.14 }}>Не мечта вообще, а следующий реальный шаг</h3>
-                <p style={{ margin: 0, color: 'rgba(255,255,255,0.84)', lineHeight: 1.6 }}>Здесь путь к Японии разбирается как проверяемая траектория: что выяснить, что сравнить и где не перепутать красивое желание с реальной процедурой.</p>
-              </div>
-            </section>
-            <section style={warmCard}>
-              {sectionTitle('Лист решения', pathDecision.title, pathDecision.keyQuestion)}
-              <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.85 }}>{pathDecision.comparePoints.map((p: string) => <li key={p}>{p}</li>)}</ul>
-            </section>
-            <section style={card}>
-              {sectionTitle('Практический сценарий', pathScenario.title, pathScenario.situation)}
-              <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.85 }}>{pathScenario.usefulMoves.map((m: string) => <li key={m}>{m}</li>)}</ul>
-            </section>
-            <section style={mistCard}>
-              {sectionTitle('Переход к учебному японскому', bridgePack.title, bridgePack.objective)}
-              <div style={{ ...muted, marginTop: 4 }}><strong style={{ color: '#5f4a2f' }}>Сдвиг:</strong> {bridgePack.expectedShift}</div>
-            </section>
-            <section style={warmCard}>
-              {sectionTitle('Практические истины', 'Что чаще всего ломает путь', 'Это не мотивирующие лозунги, а вещи, которые чаще всего путают planning и превращают его в хаос.')}
-              <div style={{ display: 'grid', gap: 12 }}>
-                {realityDeepCards.map((item: any) => (
-                  <div key={item.id} style={{ border: '1px solid #eadfce', borderRadius: 18, padding: 14, background: '#fffdf9' }}>
-                    <div style={{ fontSize: 16, fontWeight: 700, lineHeight: 1.35 }}>{item.title}</div>
-                    <div style={{ marginTop: 6, ...muted }}>{item.practicalTruth}</div>
-                    <div style={{ marginTop: 10, fontSize: 13, color: '#5f4a2f', fontWeight: 700 }}>Что сделать дальше</div>
-                    <ul style={{ margin: '6px 0 0', paddingLeft: 18, lineHeight: 1.75 }}>
-                      {item.whatToDoNext.map((step: string) => <li key={step}>{step}</li>)}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            </section>
-          </div>
-        )}
-
-        {tab === 'design' && (
-          <div style={{ display: 'grid', gap: 14 }}>
-            <section style={{ ...card, overflow: 'hidden', position: 'relative' }}>
-              <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(180deg, rgba(255,250,244,0.70), rgba(255,250,244,0.92)), url(${designVisual?.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
-              <div style={{ position: 'relative', zIndex: 1 }}>
-                <div style={{ fontSize: 12, color: accent, marginBottom: 8 }}>Дизайн-трек</div>
-                <h3 style={{ margin: '0 0 8px', fontSize: 28, lineHeight: 1.16 }}>Дизайн как настоящая японская траектория</h3>
-                <p style={{ ...muted, margin: 0 }}>Не просто красивые картинки, а язык для critique, портфолио и реального студийного будущего.</p>
-              </div>
-            </section>
-            <section style={warmCard}>
-              {sectionTitle('Язык critique', critiqueCard.title, 'Когда нравится визуал, но нужно ещё суметь объяснить, что именно работает и почему.')}
-              <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.8 }}>{critiqueCard.sentenceFrames.map((f: string) => <li key={f}>{f}</li>)}</ul>
-              <div style={{ marginTop: 10, ...muted }}><strong style={{ color: '#5f4a2f' }}>Микро-задача:</strong> {critiqueCard.microTask}</div>
-            </section>
-            <section style={mistCard}>
-              {sectionTitle('Разговор о портфолио', portfolioFrame.title, 'Это уже не просто словарь, а структура ответа, которая пригодится для студийного разговора, презентации и приёмной логики.')}
-              <div style={{ display: 'grid', gap: 10 }}>
-                {portfolioFrame.structure.map((item: string) => (
-                  <div key={item} style={{ border: '1px solid #e7ddd2', borderRadius: 16, padding: 12, background: '#fffdf9' }}>{item}</div>
-                ))}
-              </div>
-              <div style={{ marginTop: 12, fontSize: 13, color: '#5f4a2f', fontWeight: 700 }}>Полезный японский</div>
-              <ul style={{ margin: '6px 0 0', paddingLeft: 18, lineHeight: 1.75 }}>
-                {portfolioFrame.usefulJapanese.map((line: string) => <li key={line}>{line}</li>)}
-              </ul>
-            </section>
-            <section style={card}>
-              {sectionTitle('Лексика дизайна', designLexicon.title, 'Не просто слова, а строительный материал для обсуждения работ, интерфейсов и визуальных решений.')}
-              <div style={{ display: 'grid', gap: 10 }}>
-                {designLexicon.items.map((item: any) => (
-                  <div key={item.jp} style={{ border: '1px solid #ece3d7', borderRadius: 16, padding: 14, background: '#fffdf9' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', gap: 12, alignItems: 'baseline' }}>
-                      <div style={{ fontSize: 24, fontWeight: 700 }}>{item.jp}</div>
-                      <div style={{ fontSize: 12, color: '#9b8d7c' }}>{item.reading}</div>
-                    </div>
-                    <div style={{ marginTop: 4, fontSize: 14, color: '#6f6253' }}>{item.en}</div>
-                    <div style={{ marginTop: 8, lineHeight: 1.55 }}>{item.use}</div>
-                  </div>
-                ))}
-              </div>
-            </section>
-            <section style={warmCard}>
-              {sectionTitle('Учебная выживаемость', 'Фразы, которые реально помогают не теряться', 'Это уже ближе к жизни в аудитории, офисе и групповой работе, где важен не только язык, но и способность спокойно продолжать действие.')}
-              <div style={{ display: 'grid', gap: 12 }}>
-                {survivalPatterns.map((item: any) => (
-                  <div key={item.id} style={{ border: '1px solid #eadfce', borderRadius: 18, padding: 14, background: '#fffdf9' }}>
-                    <div style={{ fontSize: 15, fontWeight: 700 }}>{item.title}</div>
-                    <div style={{ marginTop: 6, ...muted }}>{item.useCase}</div>
-                    <ul style={{ margin: '8px 0 0', paddingLeft: 18, lineHeight: 1.75 }}>
-                      {item.japanese.map((line: string) => <li key={line}>{line}</li>)}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            </section>
-          </div>
-        )}
-
-        {tab === 'factual' && (
-          <div style={{ display: 'grid', gap: 14 }}>
-            <section style={warmCard}>
-              {sectionTitle('Проверяемый слой', factualCard.title, factualCard.summary)}
-              <div style={{ fontSize: 14, color: '#5f4a2f' }}><strong>Почему это нужно проверять:</strong> {factualCard.whyThisNeedsVerification}</div>
-            </section>
-            <section style={mistCard}>
-              {sectionTitle('Правила доверия', 'Как Michi должен обращаться с фактами', 'Когда речь о грантах, дедлайнах, визах и программах, поддержка не должна подменять проверку.')}
-              <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.8 }}>{sourceRules.map((r: any) => <li key={r.id}>{r.rule}</li>)}</ul>
-            </section>
-            <section style={card}>
-              {sectionTitle('Чего не делать', 'Три типичных ошибки planning-а', 'Это не запреты ради строгости, а защита от самых частых логических ловушек.')}
-              <div style={{ display: 'grid', gap: 10 }}>
-                {realityDeepCards.map((item: any) => (
-                  <div key={item.id} style={{ border: '1px solid #ece3d7', borderRadius: 16, padding: 14, background: '#fffdf9' }}>
-                    <div style={{ fontSize: 15, fontWeight: 700 }}>{item.title}</div>
-                    <ul style={{ margin: '8px 0 0', paddingLeft: 18, lineHeight: 1.75 }}>
-                      {item.whatNotToDo.map((rule: string) => <li key={rule}>{rule}</li>)}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            </section>
-          </div>
-        )}
+        {tab === 'factual' && <div style={{ display: 'grid', gap: 14 }}><section style={warmCard}>{sectionTitle('Проверяемый слой', factualCard.title, factualCard.summary)}<div style={{ fontSize: 14, color: '#5f4a2f' }}><strong>Почему это нужно проверять:</strong> {factualCard.whyThisNeedsVerification}</div></section><section style={mistCard}>{sectionTitle('Правила доверия', 'Как Michi должен обращаться с фактами', 'Когда речь о грантах, дедлайнах, визах и программах, поддержка не должна подменять проверку.')}<ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.8 }}>{sourceRules.map((r: any) => <li key={r.id}>{r.rule}</li>)}</ul></section><section style={card}>{sectionTitle('Чего не делать', 'Три типичных ошибки planning-а', 'Это не запреты ради строгости, а защита от самых частых логических ловушек.')}<div style={{ display: 'grid', gap: 10 }}>{realityDeepCards.map((item: any) => <div key={item.id} style={{ border: '1px solid #ece3d7', borderRadius: 16, padding: 14, background: '#fffdf9' }}><div style={{ fontSize: 15, fontWeight: 700 }}>{item.title}</div><ul style={{ margin: '8px 0 0', paddingLeft: 18, lineHeight: 1.75 }}>{item.whatNotToDo.map((rule: string) => <li key={rule}>{rule}</li>)}</ul></div>)}</div></section></div>}
       </div>
+
+      <a href="/chat" style={{ position: 'fixed', right: 16, bottom: 18, borderRadius: 999, background: accent, color: '#fff', padding: '13px 16px', textDecoration: 'none', fontWeight: 700, boxShadow: '0 16px 30px rgba(154,116,66,0.28)' }}>Michi chat</a>
     </div>
   )
 }
