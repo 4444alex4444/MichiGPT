@@ -95,6 +95,14 @@ export default function MichiV8Page() {
   const mistCard = { ...card, background: 'rgba(248,244,238,0.88)' } as const
   const muted = { color: '#7e7468', fontSize: 13, lineHeight: 1.6 } as const
   const accent = '#9a7442'
+  const contextualChatPrompt = tab === 'path'
+    ? 'Помоги мне разложить мой путь к учёбе в Японии на реальные шаги без хаоса.'
+    : tab === 'design'
+      ? 'Помоги мне превратить интерес к дизайну в реальный японский учебный трек и portfolio path.'
+      : tab === 'factual'
+        ? 'Помоги мне проверить путь по вузам, дедлайнам, визам и источникам без выдумывания.'
+        : 'С чего лучше начать мой путь к японскому прямо сейчас с учётом моего состояния?'
+  const contextualChatHref = `/chat?q=${encodeURIComponent(contextualChatPrompt)}`
   const sectionTitle = (eyebrow: string, title: string, body?: string) => <><div style={{ fontSize: 12, color: accent, marginBottom: 8 }}>{eyebrow}</div><h3 style={{ margin: '0 0 8px', fontSize: 28, lineHeight: 1.16 }}>{title}</h3>{body && <p style={{ ...muted, margin: '0 0 14px' }}>{body}</p>}</>
 
   return (
@@ -117,7 +125,7 @@ export default function MichiV8Page() {
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 18 }}>
               {tabs.map((item) => <button key={item.id} onClick={() => setTab(item.id)} style={{ borderRadius: 999, border: `1px solid ${tab === item.id ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.22)'}`, background: tab === item.id ? accent : 'rgba(255,255,255,0.12)', color: '#fff', padding: '10px 15px', cursor: 'pointer', fontWeight: 600 }}>{item.label}</button>)}
-              <a href="/chat" style={{ borderRadius: 999, border: '1px solid rgba(255,255,255,0.22)', background: 'rgba(255,255,255,0.18)', color: '#fff', padding: '10px 15px', textDecoration: 'none', fontWeight: 600 }}>Поговорить с Michi</a>
+              <a href={contextualChatHref} style={{ borderRadius: 999, border: '1px solid rgba(255,255,255,0.22)', background: 'rgba(255,255,255,0.18)', color: '#fff', padding: '10px 15px', textDecoration: 'none', fontWeight: 600 }}>Поговорить с Michi</a>
             </div>
           </div>
         </section>
@@ -131,7 +139,7 @@ export default function MichiV8Page() {
         {tab === 'factual' && <div style={{ display: 'grid', gap: 14 }}><section style={warmCard}>{sectionTitle('Проверяемый слой', factualCard.title, factualCard.summary)}<div style={{ fontSize: 14, color: '#5f4a2f' }}><strong>Почему это нужно проверять:</strong> {factualCard.whyThisNeedsVerification}</div></section><section style={mistCard}>{sectionTitle('Правила доверия', 'Как Michi должен обращаться с фактами', 'Когда речь о грантах, дедлайнах, визах и программах, поддержка не должна подменять проверку.')}<ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.8 }}>{sourceRules.map((r: any) => <li key={r.id}>{r.rule}</li>)}</ul></section><section style={card}>{sectionTitle('Чего не делать', 'Три типичных ошибки planning-а', 'Это не запреты ради строгости, а защита от самых частых логических ловушек.')}<div style={{ display: 'grid', gap: 10 }}>{realityDeepCards.map((item: any) => <div key={item.id} style={{ border: '1px solid #ece3d7', borderRadius: 16, padding: 14, background: '#fffdf9' }}><div style={{ fontSize: 15, fontWeight: 700 }}>{item.title}</div><ul style={{ margin: '8px 0 0', paddingLeft: 18, lineHeight: 1.75 }}>{item.whatNotToDo.map((rule: string) => <li key={rule}>{rule}</li>)}</ul></div>)}</div></section></div>}
       </div>
 
-      <a href="/chat" style={{ position: 'fixed', right: 16, bottom: 18, borderRadius: 999, background: accent, color: '#fff', padding: '13px 16px', textDecoration: 'none', fontWeight: 700, boxShadow: '0 16px 30px rgba(154,116,66,0.28)' }}>Чат с Michi</a>
+      <a href={contextualChatHref} style={{ position: 'fixed', right: 16, bottom: 18, borderRadius: 999, background: accent, color: '#fff', padding: '13px 16px', textDecoration: 'none', fontWeight: 700, boxShadow: '0 16px 30px rgba(154,116,66,0.28)' }}>Чат с Michi</a>
     </div>
   )
 }
